@@ -1,12 +1,47 @@
+///////////////////////////////////////////////////////////////////////////////
+//                   ALL STUDENTS COMPLETE THESE SECTIONS
+// Main Class File:    (name of main application class)
+// File:               (name of this class's file)
+// Quarter:            (course) Spring 2020
+//
+// Author:             (your name and email address)
+// Instructor's Name:  (name of your instructor)
+//
+//////////////////// PAIR PROGRAMMERS COMPLETE THIS SECTION ///////////////////
+// Pair Partner:       (name of your pair programming partner)
+// Email:              (email address of your programming partner)
+// Instructor's Name:  (name of your partner's instructor)
+//
+//////////////////// STUDENTS WHO GET HELP FROM OTHER THAN THEIR PARTNER //////
+//                   fully acknowledge and credit all sources of help,
+//                   other than Instructors and TAs.
+//
+// Persons:          Identify persons by name, relationship to you, and email.
+//                   Describe in detail the the ideas and help they provided.
+//
+// Online sources:   Avoid web searches to solve your problems, but if you do
+//                   search, be sure to include Web URLs and description of
+//                   of any information you find.
+//////////////////////////// 80 columns wide //////////////////////////////////
+
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
+/**
+ * (Write a succinct description of this class here. You should avoid
+ * wordiness and redundancy.)
+ *
+ * Bugs: (a list of bugs and other problems)
+ *
+ * @author (your name)
+ */
 public class MyArrayListTester {
-    public static void main(String[] args) throws Exception {
-        MyArrayList ls = new MyArrayList();
-        System.out.println(ls.get(0));
-    }
-
+    /**
+     * (Write a succinct description of this method here.)
+     * 
+     * @param (parameter name) (Describe the first parameter here)
+     * @return (description of the return value)
+     */
     @Test
     public void testDefaultConstructor() {
         MyArrayList ls = new MyArrayList();
@@ -14,6 +49,12 @@ public class MyArrayListTester {
         assertEquals(ls.getCapacity(), 10);
     }
 
+    /**
+     * (Write a succinct description of this method here.)
+     * 
+     * @param (parameter name) (Describe the first parameter here)
+     * @return (description of the return value)
+     */
     @Test
     public void testConstructor() {
         MyArrayList ls = new MyArrayList(20);
@@ -21,6 +62,12 @@ public class MyArrayListTester {
         assertEquals(ls.getCapacity(), 20);
     }
 
+    /**
+     * (Write a succinct description of this method here.)
+     * 
+     * @param (parameter name) (Describe the first parameter here)
+     * @return (description of the return value)
+     */
     @Test
     public void testInsert() {
         MyArrayList ls = new MyArrayList();
@@ -43,6 +90,12 @@ public class MyArrayListTester {
         assertEquals(ls.insert("Hamster", -1), false);
     }
 
+    /**
+     * (Write a succinct description of this method here.)
+     * 
+     * @param (parameter name) (Describe the first parameter here)
+     * @return (description of the return value)
+     */
     @Test
     public void testContains() {
         MyArrayList ls = new MyArrayList();
@@ -61,6 +114,12 @@ public class MyArrayListTester {
         assertEquals(ls.contains("Hamster"), false);
     }
 
+    /**
+     * (Write a succinct description of this method here.)
+     * 
+     * @param (parameter name) (Describe the first parameter here)
+     * @return (description of the return value)
+     */
     @Test
     public void testDelete() {
         MyArrayList ls = new MyArrayList();
