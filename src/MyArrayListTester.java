@@ -3,53 +3,55 @@ import org.junit.Test;
 
 public class MyArrayListTester {
     public static void main(String[] args) throws Exception {
+        MyArrayList ls = new MyArrayList();
+        System.out.println(ls.get(0));
     }
 
     @Test
     public void testDefaultConstructor() {
         MyArrayList ls = new MyArrayList();
-        assertEquals(ls.size, 0);
-        assertEquals(ls.capacity, 10);
+        assertEquals(ls.size(), 0);
+        assertEquals(ls.getCapacity(), 10);
     }
 
     @Test
     public void testConstructor() {
         MyArrayList ls = new MyArrayList(20);
-        assertEquals(ls.size, 0);
-        assertEquals(ls.capacity, 20);
+        assertEquals(ls.size(), 0);
+        assertEquals(ls.getCapacity(), 20);
     }
 
     @Test
-    public void testAdd() {
+    public void testInsert() {
         MyArrayList ls = new MyArrayList();
 
-        assertEquals(ls.add("Cat",0), true);
-        assertEquals(ls.array[0], "Cat");
+        assertEquals(ls.insert("Cat",0), true);
+        assertEquals(ls.get(0), "Cat");
 
-        assertEquals(ls.add("Dog", 1), true);
-        assertEquals(ls.array[1], "Dog");
+        assertEquals(ls.insert("Dog", 1), true);
+        assertEquals(ls.get(1), "Dog");
 
-        assertEquals(ls.add("Snake", 0), true);
-        assertEquals(ls.array[0], "Snake");
-        assertEquals(ls.array[1], "Cat");
-        assertEquals(ls.array[2], "Dog");
+        assertEquals(ls.insert("Snake", 0), true);
+        assertEquals(ls.get(0), "Snake");
+        assertEquals(ls.get(1), "Cat");
+        assertEquals(ls.get(2), "Dog");
 
-        assertEquals(ls.add("Fish", 5), false);
+        assertEquals(ls.insert("Fish", 5), false);
 
-        assertEquals(ls.add("Pig", 100), false);
+        assertEquals(ls.insert("Pig", 100), false);
 
-        assertEquals(ls.add("Hamster", -1), false);
+        assertEquals(ls.insert("Hamster", -1), false);
     }
 
     @Test
     public void testContains() {
         MyArrayList ls = new MyArrayList();
-        ls.add("Cat",0);
-        ls.add("Dog", 1);
-        ls.add("Snake", 0);
-        ls.add("Fish", 5);
-        ls.add("Pig", 100);
-        ls.add("Hamster", -1);
+        ls.insert("Cat",0);
+        ls.insert("Dog", 1);
+        ls.insert("Snake", 0);
+        ls.insert("Fish", 5);
+        ls.insert("Pig", 100);
+        ls.insert("Hamster", -1);
 
         assertEquals(ls.contains("Cat"), true);
         assertEquals(ls.contains("Dog"), true);
@@ -60,21 +62,21 @@ public class MyArrayListTester {
     }
 
     @Test
-    public void testRemove() {
+    public void testDelete() {
         MyArrayList ls = new MyArrayList();
-        ls.add("Cat",0);
-        ls.add("Dog", 1);
-        ls.add("Snake", 0);
-        ls.add("Fish", 5);
-        ls.add("Pig", 100);
-        ls.add("Hamster", -1);
+        ls.insert("Cat",0);
+        ls.insert("Dog", 1);
+        ls.insert("Snake", 0);
+        ls.insert("Fish", 5);
+        ls.insert("Pig", 100);
+        ls.insert("Hamster", -1);
 
-        assertEquals(ls.remove(5), null);
-        assertEquals(ls.remove(0), "Snake");
-        assertEquals(ls.remove(0), "Cat");
-        assertEquals(ls.remove(2), null);
-        assertEquals(ls.remove(100), null);
-        assertEquals(ls.remove(0), "Dog");
+        assertEquals(ls.delete(5), null);
+        assertEquals(ls.delete(0), "Snake");
+        assertEquals(ls.delete(0), "Cat");
+        assertEquals(ls.delete(2), null);
+        assertEquals(ls.delete(100), null);
+        assertEquals(ls.delete(0), "Dog");
 
         assertEquals(ls.contains("Snake"), false);
         assertEquals(ls.contains("Cat"), false);
