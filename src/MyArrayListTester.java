@@ -1,46 +1,26 @@
 ///////////////////////////////////////////////////////////////////////////////
-//                   ALL STUDENTS COMPLETE THESE SECTIONS
-// Main Class File:    (name of main application class)
-// File:               (name of this class's file)
-// Quarter:            (course) Spring 2020
 //
-// Author:             (your name and email address)
-// Instructor's Name:  (name of your instructor)
+// Main Class File:    Main.java
+// File:               MyArrayListTester.java
 //
-//////////////////// PAIR PROGRAMMERS COMPLETE THIS SECTION ///////////////////
-// Pair Partner:       (name of your pair programming partner)
-// Email:              (email address of your programming partner)
-// Instructor's Name:  (name of your partner's instructor)
+// Author:             Michael Korelov | korelovmichael@gmail.com
 //
-//////////////////// STUDENTS WHO GET HELP FROM OTHER THAN THEIR PARTNER //////
-//                   fully acknowledge and credit all sources of help,
-//                   other than Instructors and TAs.
-//
-// Persons:          Identify persons by name, relationship to you, and email.
-//                   Describe in detail the the ideas and help they provided.
-//
-// Online sources:   Avoid web searches to solve your problems, but if you do
-//                   search, be sure to include Web URLs and description of
-//                   of any information you find.
-//////////////////////////// 80 columns wide //////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 /**
- * (Write a succinct description of this class here. You should avoid
- * wordiness and redundancy.)
+ * Contains the JUnit Tests.
  *
- * Bugs: (a list of bugs and other problems)
+ * Bugs: N/A
  *
- * @author (your name)
+ * @author Michael Korelov
  */
 public class MyArrayListTester {
+
     /**
-     * (Write a succinct description of this method here.)
-     * 
-     * @param (parameter name) (Describe the first parameter here)
-     * @return (description of the return value)
+     * Sanity test of the Default constructor.
      */
     @Test
     public void testDefaultConstructor() {
@@ -50,10 +30,7 @@ public class MyArrayListTester {
     }
 
     /**
-     * (Write a succinct description of this method here.)
-     * 
-     * @param (parameter name) (Describe the first parameter here)
-     * @return (description of the return value)
+     * Santiy test of the constructor w/ a specified capcity.
      */
     @Test
     public void testConstructor() {
@@ -63,10 +40,7 @@ public class MyArrayListTester {
     }
 
     /**
-     * (Write a succinct description of this method here.)
-     * 
-     * @param (parameter name) (Describe the first parameter here)
-     * @return (description of the return value)
+     * Sanity test of the insert() method.
      */
     @Test
     public void testInsert() {
@@ -91,10 +65,7 @@ public class MyArrayListTester {
     }
 
     /**
-     * (Write a succinct description of this method here.)
-     * 
-     * @param (parameter name) (Describe the first parameter here)
-     * @return (description of the return value)
+     * Sanity test of the contains() method.
      */
     @Test
     public void testContains() {
@@ -115,10 +86,7 @@ public class MyArrayListTester {
     }
 
     /**
-     * (Write a succinct description of this method here.)
-     * 
-     * @param (parameter name) (Describe the first parameter here)
-     * @return (description of the return value)
+     * Sanity test of the delete() method.
      */
     @Test
     public void testDelete() {

@@ -1,53 +1,36 @@
 ///////////////////////////////////////////////////////////////////////////////
-//                   ALL STUDENTS COMPLETE THESE SECTIONS
-// Main Class File:    (name of main application class)
-// File:               (name of this class's file)
-// Quarter:            (course) Spring 2020
 //
-// Author:             (your name and email address)
-// Instructor's Name:  (name of your instructor)
+// Main Class File:    Main.java
+// File:               MyArrayList.java
 //
-//////////////////// PAIR PROGRAMMERS COMPLETE THIS SECTION ///////////////////
-// Pair Partner:       (name of your pair programming partner)
-// Email:              (email address of your programming partner)
-// Instructor's Name:  (name of your partner's instructor)
+// Author:             Michael Korelov | korelovmichael@gmail.com
 //
-//////////////////// STUDENTS WHO GET HELP FROM OTHER THAN THEIR PARTNER //////
-//                   fully acknowledge and credit all sources of help,
-//                   other than Instructors and TAs.
+///////////////////////////////////////////////////////////////////////////////
 //
-// Persons:          Identify persons by name, relationship to you, and email.
-//                   Describe in detail the the ideas and help they provided.
+// Online sources:   https://cogniterra.org/lesson/36902/step/1?unit=28666 &
+// https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html
 //
-// Online sources:   Avoid web searches to solve your problems, but if you do
-//                   search, be sure to include Web URLs and description of
-//                   of any information you find.
-//////////////////////////// 80 columns wide //////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
-/*
- * MY basic ArrayList implementation in Java based on the pseudocode 
- * and method descriptions provided at: 
- * https://cogniterra.org/lesson/36902/step/1?unit=28666 & 
- * https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html.
- * Uses a zero-indexed array as the backend data structure. 
+/**
+ * My basic ArrayList implementation in Java based on the pseudocode and 
+ * method descriptions provided at the online sources above. Works with any 
+ * subtype of Object. Uses a zero-indexed array as the backend data structure. 
+ * Has 3 private member variables: a backend array that holds the data, an int 
+ * that holds the number of elements in the ArrayList, and an int that holds 
+ * the number of free slots in the ArrayList.
  * 
  * 1) Write sanity tests for basic methods.
- * 2) Implement insert(idx, elem), contains(elem), delete(idx), 
+ * 2) Implement insert(idx, elem), contains(elem), delete(idx), add(elem), 
  * get(idx), size() & getCapacity(). 
  * 3) Write advanced tests w/ edge cases.
  * 4) Write sanity tests for advanced methods.
- * 5) Implement trimToSize(), toArray(), sort(), set(idx, elem), 
- * remove(elem), isEmpty(), indexOf(elem), ensureCapacity(sz), 
- * clear(), & add(elem). 
+ * 5) Implement trimToSize(), toArray(), sort(), set(idx, elem), remove(elem), 
+ * isEmpty(), indexOf(elem), ensureCapacity(sz), & clear(). 
  * 6) Implement the constructor given an array.
  * 7) Write advanced tests w/ edge cases.
- */
-
- /**
- * (Write a succinct description of this class here. You should avoid
- * wordiness and redundancy.)
  *
- * Bugs: (a list of bugs and other problems)
+ * Bugs: N/A
  *
  * @author Michael Korelov
  */
@@ -59,9 +42,6 @@ public class MyArrayList {
 
     /**
      * (Write a succinct description of this method here.)
-     * 
-     * @param (parameter name) (Describe the first parameter here)
-     * @return (description of the return value)
      */
     public MyArrayList() {
         this.array = new Object[DEFAULT];
@@ -73,7 +53,6 @@ public class MyArrayList {
      * (Write a succinct description of this method here.)
      * 
      * @param (parameter name) (Describe the first parameter here)
-     * @return (description of the return value)
      */
     public MyArrayList(int cap) {
         this.array = new Object[cap];
@@ -85,10 +64,22 @@ public class MyArrayList {
      * (Write a succinct description of this method here.)
      * 
      * @param (parameter name) (Describe the first parameter here)
+     * @param (parameter name) (Describe the second parameter here)
+     * @return (description of the return value)
+     */
+    public boolean add(Object elem) {
+        return true;
+    }
+
+    /**
+     * (Write a succinct description of this method here.)
+     * 
+     * @param (parameter name) (Describe the first parameter here)
+     * @param (parameter name) (Describe the second parameter here)
      * @return (description of the return value)
      */
     public boolean insert(Object elem, int idx) {
-        if (idx < 0 || idx > this.size) {
+        if (idx < 0 || idx >= this.size) {
             return false;
         }
 
@@ -165,7 +156,6 @@ public class MyArrayList {
     /**
      * (Write a succinct description of this method here.)
      * 
-     * @param (parameter name) (Describe the first parameter here)
      * @return (description of the return value)
      */
     public int size() {
@@ -173,9 +163,9 @@ public class MyArrayList {
     }
 
     /**
-     * (Write a succinct description of this method here.)
+     * Getter method that accesses private member vairable to verify
+     * constructor in testing file.
      * 
-     * @param (parameter name) (Describe the first parameter here)
      * @return (description of the return value)
      */
     public int getCapacity() {
