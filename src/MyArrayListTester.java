@@ -10,7 +10,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 /**
- * Contains the JUnit Tests: Unit & Integration Tests.
+ * Contains the JUnit Tests: Unit & Integration Tests. get(idx), size(), &
+ * getCapacity() are tested within the tests for other methods.
  *
  * Bugs: N/A
  *
@@ -234,7 +235,7 @@ public class MyArrayListTester {
      * Sanity test of the contains() method.
      */
     @Test
-    public void testContains() {
+    public void testContains1() {
         MyArrayList<String> ls = new MyArrayList<String>();
 
         assertEquals(false, ls.contains("Dog"));
@@ -242,6 +243,42 @@ public class MyArrayListTester {
         ls.insert("Dog",0);
 
         assertEquals(true, ls.contains("Dog"));
+    }
+
+    /**
+     * Unit test of the contains() method.
+     */
+    @Test
+    public void testContains2() {
+        MyArrayList<Integer> ls = new MyArrayList<Integer>();
+
+        assertEquals(true, ls.insert(10,0));
+
+        assertEquals(true, ls.contains(10));
+
+        assertEquals(false, ls.insert(3,10));
+
+        assertEquals(false, ls.contains(3));
+    }
+
+    /**
+     * Unit test of the contains() method. Duplicates.
+     */
+    @Test
+    public void testContains3() {
+        MyArrayList<String> ls = new MyArrayList<String>();
+
+        ls.insert("Bob", 0);
+
+        ls.insert("Bob", 0);
+
+        ls.delete(0);
+
+        assertEquals(true, ls.contains("Bob"));
+
+        ls.delete(0);
+
+        assertEquals(false, ls.contains("Bob"));
     }
 
     /**
