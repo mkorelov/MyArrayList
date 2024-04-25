@@ -23,7 +23,7 @@ public class Main {
     /**
      * Main method.
      *
-     * @param String[] args: An array of Strings passed from the command line.
+     * @param (String[] args) An array of Strings passed from the command line.
      */
     public static void main(String[] args) throws Exception {
         ArrayList<Integer> ls = new ArrayList<Integer>();

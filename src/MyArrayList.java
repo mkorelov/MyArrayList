@@ -20,7 +20,7 @@
  * that holds the number of elements in the ArrayList, and an int that holds 
  * the number of free slots in the ArrayList.
  * 
- * 1) Write sanity tests for basic methods.
+ * 1) Write sanity tests for basic methods. 
  * 2) Implement insert(idx, elem), contains(elem), delete(idx), get(idx), 
  * size() & getCapacity(). 
  * 3) Write advanced tests w/ edge cases.
@@ -35,53 +35,62 @@
  * @author Michael Korelov
  */
 public class MyArrayList {
-    private static int DEFAULT = 10;                // default capacity of MyArrayList
-    private String type;                            // datatype stored in MyArrayList
-    private int size;                               // number of elements in MyArrayList
-    private int capacity;                           // open slots in backend array in MyArrayList
-    private Object[] array;                         // backend array in MyArrayList
+    private static int DEFAULT = 10;    // default capacity
+    private static int DOUBLE = 2;      // doubles array size
+
+    private String dataType;            // type of data stored
+    private int size;                   // number of elements
+    private int capacity;               // open slots in backend array
+    private Object[] array;             // backend array
 
     /**
-     * (Write a succinct description of this method here.)
+     * Default constructor for MyArrayList.
      * 
-     * @param (parameter name) (Describe the first parameter here)
+     * @param (String type) Specifies datatype of MyArrayList.
      */
     public MyArrayList(String type) {
-        this.type = type;
+        this.dataType = type;
         this.array = new Object[DEFAULT];
         this.capacity = DEFAULT;
         this.size = 0;
     }
 
     /**
-     * (Write a succinct description of this method here.)
+     * Constructor for MyArrayList that specifies the initial capacity.
      * 
-     * @param (parameter name) (Describe the first parameter here)
-     * @param (parameter name) (Describe the first parameter here)
+     * @param (String type) Specifies datatype of MyArrayList.
+     * @param (int cap) Specifies the initial capacity of MyArrayList.
      */
     public MyArrayList(String type, int cap) {
-        this.type = type;
+        this.dataType = type;
         this.array = new Object[cap];
         this.capacity = cap;
         this.size = 0;
     }
 
     /**
-     * (Write a succinct description of this method here.)
+     * Inserts the specified element at the specified index. Makes sure
+     * type of new element matches the type of MyArrayList and that the
+     * index is valid. If MyArrayList is empty, can only insert at
+     * position 0. May require the creation of a new array twice the size
+     * if backend array is full.
      * 
-     * @param (parameter name) (Describe the first parameter here)
-     * @param (parameter name) (Describe the second parameter here)
-     * @return (description of the return value)
+     * @param (Object elem) Element that will be inserted.
+     * @param (int idx) Position where element will be inserted.
+     * @return Returns true if successful, false otherwise.
      */
     public boolean insert(Object elem, int idx) {
-        // check that type of elem matches
-        // elem.getClass().getSimpleName()
-        if (idx < 0 || idx >= this.size) {
+        String type = elem.getClass().getSimpleName();
+        if (!type.equals(dataType)) {
+            return false;
+        }
+        if (idx < 0 || idx > this.size) {
             return false;
         }
 
-        if (this.size == this.capacity) {
-            Object[] arr = new Object[this.capacity * 2];
+        int len = this.array.length;
+        if (this.size == len) {
+            Object[] arr = new Object[len * DOUBLE];
             for (int i = 0; i < this.size; i++) {
                 arr[i] = this.array[i];
             }
@@ -91,7 +100,7 @@ public class MyArrayList {
         if (idx == this.size) {
             array[idx] = elem;
         } else {
-            for (int i = this.size - 1; i < idx + 1; i++) {
+            for (int i = this.size - 1; i >= idx; i--) {
                 this.array[i + 1] = this.array[i];
             }
             this.array[idx] = elem;
@@ -102,25 +111,31 @@ public class MyArrayList {
     }
 
     /**
-     * (Write a succinct description of this method here.)
+     * Checks if MyArrayList contains a specific element. First
+     * verifies type matches the type of MyArrayList.
      * 
-     * @param (parameter name) (Describe the first parameter here)
-     * @return (description of the return value)
+     * @param (Object elem) Element that is looked for.
+     * @return Returns true if element exists, false otherwise.
      */
     public boolean contains(Object elem) {
-        for (int i = 0; i < this.size; i++) {
-            if (this.array[i] == elem) {
-                return true;
+        String type = elem.getClass().getSimpleName();
+        if (type.equals(dataType)) {
+            for (int i = 0; i < this.size; i++) {
+                if (this.array[i].equals(elem)) {
+                    return true;
+                }
             }
         }
         return false;
     }
 
     /**
-     * (Write a succinct description of this method here.)
+     * Removes the element at the specified index. Checks if 
+     * index is valid first and shifts remaining elements over
+     * if not removed from the end.
      * 
-     * @param (parameter name) (Describe the first parameter here)
-     * @return (description of the return value)
+     * @param (int idx) The position at which to delete an element.
+     * @return Returns the element that is deleted.
      */
     public Object delete(int idx) {
         if (idx < 0 || idx >= this.size) {
@@ -141,29 +156,29 @@ public class MyArrayList {
     }
 
     /**
-     * (Write a succinct description of this method here.)
+     * Gets the element at a specified index in MyArrayList.
      * 
-     * @param (parameter name) (Describe the first parameter here)
-     * @return (description of the return value)
+     * @param (int idx) The postion from which to get the element.
+     * @return Returns the element at the specified index.
      */
     public Object get(int idx) {
         return this.array[idx];
     }
 
     /**
-     * (Write a succinct description of this method here.)
+     * Getter method that accesses private member vairable.
      * 
-     * @return (description of the return value)
+     * @return Returns the number of elements in MyArrayList.
      */
     public int size() {
         return this.size;
     }
 
     /**
-     * Getter method that accesses private member vairable to verify
-     * constructor in testing file.
+     * Getter method that accesses private member vairable to
+     * check the constructor works in the testing file.
      * 
-     * @return (description of the return value)
+     * @return Returns the number of empty slots in MyArrayList.
      */
     public int getCapacity() {
         return this.capacity;
