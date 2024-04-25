@@ -8,10 +8,12 @@
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
+import java.util.ArrayList;
 
 /**
- * Contains the JUnit Tests: Unit & Integration Tests. get(idx), size(), &
- * getCapacity() are tested within the tests for other methods.
+ * Contains the JUnit Tests: Unit & Integration Tests, which compare 
+ * functionality to java's ArrayList. get(idx), size(), & getCapacity() are 
+ * tested within the tests for other methods.
  *
  * Bugs: N/A
  *
@@ -471,5 +473,73 @@ public class MyArrayListTester {
         assertEquals((Character)'1', ls.get(3));
     }
 
-    // Integration Tests
+    // Integration Test
+    /**
+     * Integration test of all methods working together in a realistic 
+     * scenario.
+     */
+    @Test
+    public void groceryList() {
+        MyArrayList<String> ls = new MyArrayList<String>(2);
+
+        assertEquals(0, ls.size());
+        assertEquals(2, ls.getCapacity());
+
+        assertEquals(false, ls.insert("Vanilla Icecream",100));
+        assertEquals(true, ls.insert("1x Mango",0));
+        assertEquals(true, ls.insert("1x Bag of Flour",1));
+        assertEquals(true, ls.insert("1x Gallon of Milk",2));
+        assertEquals(true, ls.insert("5x Bananas",3));
+        assertEquals(true, ls.insert("Dozen Organic Eggs",4));
+        assertEquals(true, ls.insert("2lbs Chicken Thigh",5));
+
+        assertEquals(6, ls.size());
+        assertEquals(2, ls.getCapacity());
+
+        assertEquals(null, ls.get(100));
+        assertEquals("1x Mango", ls.get(0));
+        assertEquals("1x Bag of Flour", ls.get(01));
+        assertEquals("1x Gallon of Milk", ls.get(2));
+        assertEquals("5x Bananas", ls.get(3));
+        assertEquals("Dozen Organic Eggs", ls.get(4));
+        assertEquals("2lbs Chicken Thigh", ls.get(5));
+
+        assertEquals(6, ls.size());
+        assertEquals(2, ls.getCapacity());
+
+        assertEquals(false, ls.contains("Vanilla Icecream"));
+        assertEquals(true, ls.contains("1x Mango"));
+        assertEquals(true, ls.contains("1x Bag of Flour"));
+        assertEquals(true, ls.contains("1x Gallon of Milk"));
+        assertEquals(true, ls.contains("5x Bananas"));
+        assertEquals(true, ls.contains("Dozen Organic Eggs"));
+        assertEquals(true, ls.contains("2lbs Chicken Thigh"));
+
+        assertEquals(6, ls.size());
+        assertEquals(2, ls.getCapacity());
+
+        assertEquals(null, ls.delete(100));
+        assertEquals("1x Mango", ls.delete(0));
+        assertEquals("1x Bag of Flour", ls.delete(0));
+        assertEquals("1x Gallon of Milk", ls.delete(0));
+        assertEquals("5x Bananas", ls.delete(0));
+        assertEquals("Dozen Organic Eggs", ls.delete(0));
+        assertEquals("2lbs Chicken Thigh", ls.delete(0));
+
+        assertEquals(0, ls.size());
+        assertEquals(8, ls.getCapacity());
+
+        assertEquals(false, ls.contains("Vanilla Icecream"));
+        assertEquals(false, ls.contains("1x Mango"));
+        assertEquals(false, ls.contains("1x Bag of Flour"));
+        assertEquals(false, ls.contains("1x Gallon of Milk"));
+        assertEquals(false, ls.contains("5x Bananas"));
+        assertEquals(false, ls.contains("Dozen Organic Eggs"));
+        assertEquals(false, ls.contains("2lbs Chicken Thigh"));
+    }
+
+    // Comparison Tests
+    // insert then delete then insert again
+    // check how list changes after each deletion and insertion with get()
+
 }

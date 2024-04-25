@@ -169,6 +169,9 @@ public class MyArrayList<T> {
      * @return Returns the element at the specified index.
      */
     public T get(int idx) {
+        if (idx < 0 || idx >= this.size) {
+            return null;
+        }
         return this.array[idx];
     }
 
