@@ -32,7 +32,7 @@ public class MyArrayListTester {
     }
 
     /**
-     * Unit test of the Default constructor. Works for other object types.
+     * Unit test of the Default constructor. Works for other types.
      */
     @Test
     public void testDefaultConstructor2() {
@@ -80,13 +80,154 @@ public class MyArrayListTester {
     }
 
     /**
-     * Unit test of the insert() method.
+     * Unit test of the insert() method. Insert when full.
      */
     @Test
     public void testInsert2() {
-        MyArrayList<String> ls = new MyArrayList<String>();
+        MyArrayList<String> ls = new MyArrayList<String>(1);
+
+        assertEquals(0, ls.size());
+
+        assertEquals(1, ls.getCapacity());
 
         assertEquals(true, ls.insert("Cat",0));
+
+        assertEquals("Cat", ls.get(0));
+
+        assertEquals(1, ls.size());
+
+        assertEquals(0, ls.getCapacity());
+
+        assertEquals(true, ls.insert("Dog",1));
+
+        assertEquals("Cat", ls.get(0));
+
+        assertEquals("Dog", ls.get(1));
+
+        assertEquals(2, ls.size());
+
+        assertEquals(0, ls.getCapacity());
+
+        assertEquals(true, ls.insert("Snake",0));
+
+        assertEquals("Cat", ls.get(1));
+
+        assertEquals("Dog", ls.get(2));
+
+        assertEquals("Snake", ls.get(0));
+
+        assertEquals(3, ls.size());
+
+        assertEquals(1, ls.getCapacity());
+    }
+
+    /**
+     * Unit test of the insert() method. Insert duplicates.
+     */
+    @Test
+    public void testInsert3() {
+        MyArrayList<String> ls = new MyArrayList<String>(1);
+
+        assertEquals(true, ls.insert("Cat",0));
+
+        assertEquals("Cat", ls.get(0));
+
+        assertEquals(true, ls.insert("Cat",1));
+
+        assertEquals("Cat", ls.get(0));
+
+        assertEquals("Cat", ls.get(1));
+    }
+
+    /**
+     * Unit test of the insert() method. Insert into list of inital
+     * capacity of 0.
+     */
+    @Test
+    public void testInsert4() {
+        MyArrayList<Integer> ls = new MyArrayList<Integer>(0);
+
+        assertEquals(false, ls.insert(5,1));
+
+        assertEquals(true, ls.insert(2,0));
+
+        assertEquals(true, ls.insert(5,1));
+    }
+
+    /**
+     * Unit test of the insert() method. Insert at front.
+     */
+    @Test
+    public void testInsert5() {
+        MyArrayList<Integer> ls = new MyArrayList<Integer>();
+
+        assertEquals(true, ls.insert(0,0));
+
+        assertEquals(true, ls.insert(1,0));
+
+        assertEquals(true, ls.insert(2,0));
+
+        assertEquals(3, ls.size());
+
+        assertEquals(7, ls.getCapacity());
+
+        assertEquals((Integer) 2, ls.get(0));
+
+        assertEquals((Integer) 1, ls.get(1));
+
+        assertEquals((Integer) 0, ls.get(2));
+    }
+
+    /**
+     * Unit test of the insert() method. Insert at back.
+     */
+    @Test
+    public void testInsert6() {
+        MyArrayList<Integer> ls = new MyArrayList<Integer>();
+
+        assertEquals(true, ls.insert(2,0));
+
+        assertEquals(true, ls.insert(1,1));
+
+        assertEquals(true, ls.insert(0,2));
+
+        assertEquals(3, ls.size());
+
+        assertEquals(7, ls.getCapacity());
+
+        assertEquals((Integer) 2, ls.get(0));
+
+        assertEquals((Integer) 1, ls.get(1));
+
+        assertEquals((Integer) 0, ls.get(2));
+    }
+
+    /**
+     * Unit test of the insert() method. Insert in middle.
+     */
+    @Test
+    public void testInsert7() {
+        MyArrayList<Integer> ls = new MyArrayList<Integer>();
+
+        assertEquals(true, ls.insert(0,0));
+
+        assertEquals(true, ls.insert(1,1));
+
+        assertEquals(true, ls.insert(2,2));
+
+        assertEquals(true, ls.insert(10,1));
+
+        assertEquals(4, ls.size());
+
+        assertEquals(6, ls.getCapacity());
+
+        assertEquals((Integer) 2, ls.get(3));
+
+        assertEquals((Integer) 1, ls.get(2));
+
+        assertEquals((Integer) 10, ls.get(1));
+
+        assertEquals((Integer) 0, ls.get(0));
     }
 
     /**

@@ -25,7 +25,7 @@ public class Main {
      * @param (String[] args) An array of Strings passed from the command line.
      */
     public static void main(String[] args) throws Exception {
-        ArrayList<Integer> ls = new ArrayList<Integer>();
+        ArrayList<Integer> ls = new ArrayList<Integer>(-1);
         ls.add(0,2);
         System.out.println(ls.get(0));
     }

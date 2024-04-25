@@ -20,21 +20,22 @@
  * that holds the number of elements in the ArrayList, and an int that holds 
  * the number of free slots in the ArrayList.
  * 
- * @param <T> The type of MyArrayList.
- * 
  * 1) Write sanity tests for basic methods. (Done)
  * 2) Implement insert(idx, elem), contains(elem), delete(idx), get(idx), 
  * size() & getCapacity(). (Done)
  * 3) Write advanced tests w/ edge cases.
  * 4) Write sanity tests for advanced methods.
  * 5) Implement trimToSize(), toArray(), sort(), set(idx, elem), remove(elem), 
- * isEmpty(), indexOf(elem), ensureCapacity(sz), clear(), & add(elem).
+ * lastIndexOf(elem), isEmpty(), indexOf(elem), ensureCapacity(sz), clear(), 
+ * & add(elem).
  * 6) Implement the constructor given an array.
  * 7) Write advanced tests w/ edge cases.
  *
  * Bugs: N/A
  *
  * @author Michael Korelov
+ * 
+ * @param <T> The type of MyArrayList.
  */
 public class MyArrayList<T> {
     private static int DEFAULT = 10;    // default capacity
@@ -46,9 +47,6 @@ public class MyArrayList<T> {
 
     /**
      * Default constructor for MyArrayList. Initializes the member variables.
-     * Use valid type.
-     * 
-     * @param (String type) Specifies datatype of MyArrayList.
      */
     public MyArrayList() {
         this.array = (T[]) new Object[DEFAULT];
@@ -58,23 +56,28 @@ public class MyArrayList<T> {
 
     /**
      * Constructor for MyArrayList that specifies the initial capacity.
-     * Initializes the member variables. Use non-negative cap and valid 
-     * type.
+     * Initializes the member variables. Use non-negative cap.
      * 
-     * @param (String type) Specifies datatype of MyArrayList.
      * @param (int cap) Specifies the initial capacity of MyArrayList.
      */
     public MyArrayList(int cap) {
-        this.array = (T[]) new Object[cap];
-        this.capacity = cap;
-        this.size = 0;
+        /*if (cap == 0) {
+            this.array = (T[]) new Object[1];
+            this.capacity = 1;
+            this.size = 0;
+        } else {*/
+            this.array = (T[]) new Object[cap];
+            this.capacity = cap;
+            this.size = 0;
+        //}
     }
 
     /**
      * Inserts the specified element at the specified index. Makes sure
      * that the index is valid. If MyArrayList is empty, can only insert 
      * at position 0. May require the creation of a new array twice the 
-     * size if backend array is full.
+     * length if backend array is full. If initial capacity is 0, then 
+     * create new array of length 1.
      * 
      * @param (T elem) Element that will be inserted.
      * @param (int idx) Position where element will be inserted.
@@ -85,9 +88,19 @@ public class MyArrayList<T> {
             return false;
         }
 
+        if (this.capacity == 0 && this.size == 0) {
+            T[] arr = (T[]) new Object[1];
+            this.array = arr;
+            this.array[idx] = elem;
+            this.capacity += 1;
+            this.size += 1;
+            return true;
+        }
+
         int len = this.array.length;
         if (this.size == len) {
             T[] arr = (T[]) new Object[len * DOUBLE];
+            capacity += len;
             for (int i = 0; i < this.size; i++) {
                 arr[i] = this.array[i];
             }
@@ -95,7 +108,7 @@ public class MyArrayList<T> {
         }
 
         if (idx == this.size) {
-            array[idx] = elem;
+            this.array[idx] = elem;
         } else {
             for (int i = this.size - 1; i >= idx; i--) {
                 this.array[i + 1] = this.array[i];
