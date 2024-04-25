@@ -164,7 +164,13 @@ public class MyArrayListTester {
 
         assertEquals(true, ls.insert(0,0));
 
+        assertEquals((Integer) 0, ls.get(0));
+
         assertEquals(true, ls.insert(1,0));
+
+        assertEquals((Integer) 1, ls.get(0));
+
+        assertEquals((Integer) 0, ls.get(1));
 
         assertEquals(true, ls.insert(2,0));
 
@@ -188,7 +194,13 @@ public class MyArrayListTester {
 
         assertEquals(true, ls.insert(2,0));
 
+        assertEquals((Integer) 2, ls.get(0));
+
         assertEquals(true, ls.insert(1,1));
+
+        assertEquals((Integer) 2, ls.get(0));
+
+        assertEquals((Integer) 1, ls.get(1));
 
         assertEquals(true, ls.insert(0,2));
 
@@ -212,9 +224,21 @@ public class MyArrayListTester {
 
         assertEquals(true, ls.insert(0,0));
 
+        assertEquals((Integer) 0, ls.get(0));
+
         assertEquals(true, ls.insert(1,1));
 
+        assertEquals((Integer) 0, ls.get(0));
+
+        assertEquals((Integer) 1, ls.get(1));
+
         assertEquals(true, ls.insert(2,2));
+
+        assertEquals((Integer) 0, ls.get(0));
+
+        assertEquals((Integer) 1, ls.get(1));
+
+        assertEquals((Integer) 2, ls.get(2));
 
         assertEquals(true, ls.insert(10,1));
 
@@ -285,7 +309,7 @@ public class MyArrayListTester {
      * Sanity test of the delete() method.
      */
     @Test
-    public void testDelete() {
+    public void testDelete1() {
         MyArrayList<String> ls = new MyArrayList<String>();
 
         ls.insert("Fish", 0);
@@ -295,6 +319,156 @@ public class MyArrayListTester {
         ls.delete(0);
 
         assertEquals(false, ls.contains("Fish"));
+    }
+
+    /**
+     * Unit test of the delete() method. Delete when full.
+     */
+    @Test
+    public void testDelete2() {
+        MyArrayList<String> ls = new MyArrayList<String>(2);
+
+        ls.insert("Mango", 0);
+
+        ls.insert("Kiwi", 1);
+
+        assertEquals(2, ls.size());
+
+        assertEquals(0, ls.getCapacity());
+
+        assertEquals("Mango", ls.delete(0));
+
+        assertEquals(1, ls.size());
+
+        assertEquals(1, ls.getCapacity());
+    }
+
+    /**
+     * Unit test of the delete() method. Delete when empty.
+     */
+    @Test
+    public void testDelete3() {
+        MyArrayList<String> ls = new MyArrayList<String>();
+
+        assertEquals(null, ls.delete(0));
+    }
+
+    /**
+     * Unit test of the delete() method. Delete from front.
+     */
+    @Test
+    public void testDelete4() {
+        MyArrayList<Character> ls = new MyArrayList<Character>();
+
+        ls.insert('f', 0);
+        ls.insert('2', 1);
+        ls.insert('$', 2);
+        ls.insert('L', 3);
+        ls.insert('1', 4);
+
+        assertEquals(5, ls.size());
+
+        assertEquals(5, ls.getCapacity());
+
+        assertEquals((Character) 'f', ls.delete(0));
+
+        assertEquals(4, ls.size());
+
+        assertEquals(6, ls.getCapacity());
+
+        assertEquals((Character)'2', ls.get(0));
+
+        assertEquals((Character)'$', ls.get(1));
+
+        assertEquals((Character)'L', ls.get(2));
+
+        assertEquals((Character)'1', ls.get(3));
+    }
+
+    /**
+     * Unit test of the delete() method. Delete from back..
+     */
+    @Test
+    public void testDelete5() {
+        MyArrayList<Character> ls = new MyArrayList<Character>();
+
+        ls.insert('f', 0);
+        ls.insert('2', 1);
+        ls.insert('$', 2);
+        ls.insert('L', 3);
+        ls.insert('1', 4);
+
+        assertEquals(5, ls.size());
+
+        assertEquals(5, ls.getCapacity());
+
+        assertEquals((Character) '1', ls.delete(4));
+
+        assertEquals(4, ls.size());
+
+        assertEquals(6, ls.getCapacity());
+
+        assertEquals((Character)'f', ls.get(0));
+
+        assertEquals((Character)'2', ls.get(1));
+
+        assertEquals((Character)'$', ls.get(2));
+
+        assertEquals((Character)'L', ls.get(3));
+    }
+
+    /**
+     * Unit test of the delete() method. Delete duplicates.
+     */
+    @Test
+    public void testDelete6() {
+        MyArrayList<String> ls = new MyArrayList<String>();
+
+        ls.insert("Fish", 0);
+
+        ls.insert("Fish", 0);
+
+        assertEquals(true, ls.contains("Fish"));
+
+        assertEquals("Fish", ls.delete(0));
+
+        assertEquals(true, ls.contains("Fish"));
+
+        assertEquals("Fish", ls.delete(0));
+
+        assertEquals(false, ls.contains("Fish"));
+    }
+
+    /**
+     * Unit test of the delete() method. Delete from middle.
+     */
+    @Test
+    public void testDelete7() {
+        MyArrayList<Character> ls = new MyArrayList<Character>();
+
+        ls.insert('f', 0);
+        ls.insert('2', 1);
+        ls.insert('$', 2);
+        ls.insert('L', 3);
+        ls.insert('1', 4);
+
+        assertEquals(5, ls.size());
+
+        assertEquals(5, ls.getCapacity());
+
+        assertEquals((Character) '$', ls.delete(2));
+
+        assertEquals(4, ls.size());
+
+        assertEquals(6, ls.getCapacity());
+
+        assertEquals((Character)'f', ls.get(0));
+
+        assertEquals((Character)'2', ls.get(1));
+
+        assertEquals((Character)'L', ls.get(2));
+
+        assertEquals((Character)'1', ls.get(3));
     }
 
     // Integration Tests
