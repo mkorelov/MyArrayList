@@ -2,7 +2,6 @@
 //
 // Main Class File:    Main.java
 // File:               MyArrayListTester.java
-//
 // Author:             Michael Korelov | korelovmichael@gmail.com
 //
 ///////////////////////////////////////////////////////////////////////////////
@@ -10,12 +9,8 @@
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
-// TODO: Things to test
-// - each myarraylist only holds one type
-// - myarraylist works for multiple object types
-
 /**
- * Contains the JUnit Tests.
+ * Contains the JUnit Tests: Unit & Integration Tests.
  *
  * Bugs: N/A
  *
@@ -23,12 +18,25 @@ import org.junit.Test;
  */
 public class MyArrayListTester {
 
+    // Unit Tests
     /**
      * Sanity test of the Default constructor.
      */
     @Test
-    public void testDefaultConstructor() {
-        MyArrayList ls = new MyArrayList("String");
+    public void testDefaultConstructor1() {
+        MyArrayList<String> ls = new MyArrayList<String>();
+
+        assertEquals(0, ls.size());
+
+        assertEquals(10, ls.getCapacity());
+    }
+
+    /**
+     * Unit test of the Default constructor. Works for other object types.
+     */
+    @Test
+    public void testDefaultConstructor2() {
+        MyArrayList<Integer> ls = new MyArrayList<Integer>();
 
         assertEquals(0, ls.size());
 
@@ -39,8 +47,8 @@ public class MyArrayListTester {
      * Santiy test of the constructor w/ a specified capcity.
      */
     @Test
-    public void testConstructor() {
-        MyArrayList ls = new MyArrayList("Integer", 20);
+    public void testConstructor1() {
+        MyArrayList<Integer> ls = new MyArrayList<Integer>(20);
 
         assertEquals(0, ls.size());
 
@@ -48,11 +56,23 @@ public class MyArrayListTester {
     }
 
     /**
+     * Unit test of the Default constructor. Works for other object types.
+     */
+    @Test
+    public void testConstructor2() {
+        MyArrayList<Character> ls = new MyArrayList<Character>(15);
+
+        assertEquals(0, ls.size());
+
+        assertEquals(15, ls.getCapacity());
+    }
+
+    /**
      * Sanity test of the insert() method.
      */
     @Test
-    public void testInsert() {
-        MyArrayList ls = new MyArrayList("String");
+    public void testInsert1() {
+        MyArrayList<String> ls = new MyArrayList<String>();
 
         assertEquals(true, ls.insert("Cat",0));
 
@@ -60,11 +80,21 @@ public class MyArrayListTester {
     }
 
     /**
+     * Unit test of the insert() method.
+     */
+    @Test
+    public void testInsert2() {
+        MyArrayList<String> ls = new MyArrayList<String>();
+
+        assertEquals(true, ls.insert("Cat",0));
+    }
+
+    /**
      * Sanity test of the contains() method.
      */
     @Test
     public void testContains() {
-        MyArrayList ls = new MyArrayList("String");
+        MyArrayList<String> ls = new MyArrayList<String>();
 
         assertEquals(false, ls.contains("Dog"));
 
@@ -78,7 +108,7 @@ public class MyArrayListTester {
      */
     @Test
     public void testDelete() {
-        MyArrayList ls = new MyArrayList("String");
+        MyArrayList<String> ls = new MyArrayList<String>();
 
         ls.insert("Fish", 0);
 
@@ -88,4 +118,6 @@ public class MyArrayListTester {
 
         assertEquals(false, ls.contains("Fish"));
     }
+
+    // Integration Tests
 }

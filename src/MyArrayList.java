@@ -2,13 +2,13 @@
 //
 // Main Class File:    Main.java
 // File:               MyArrayList.java
-//
 // Author:             Michael Korelov | korelovmichael@gmail.com
 //
 ///////////////////////////////////////////////////////////////////////////////
 //
-// Online sources:   https://cogniterra.org/lesson/36902/step/1?unit=28666 &
-// https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html
+// Online sources:   https://cogniterra.org/lesson/36902/step/1?unit=28666, 
+// https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html, &
+// https://docs.oracle.com/javase/tutorial/java/generics/types.html.
 //
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -20,9 +20,11 @@
  * that holds the number of elements in the ArrayList, and an int that holds 
  * the number of free slots in the ArrayList.
  * 
- * 1) Write sanity tests for basic methods. 
+ * @param <T> The type of MyArrayList.
+ * 
+ * 1) Write sanity tests for basic methods. (Done)
  * 2) Implement insert(idx, elem), contains(elem), delete(idx), get(idx), 
- * size() & getCapacity(). 
+ * size() & getCapacity(). (Done)
  * 3) Write advanced tests w/ edge cases.
  * 4) Write sanity tests for advanced methods.
  * 5) Implement trimToSize(), toArray(), sort(), set(idx, elem), remove(elem), 
@@ -34,63 +36,58 @@
  *
  * @author Michael Korelov
  */
-public class MyArrayList {
+public class MyArrayList<T> {
     private static int DEFAULT = 10;    // default capacity
     private static int DOUBLE = 2;      // doubles array size
 
-    private String dataType;            // type of data stored
     private int size;                   // number of elements
     private int capacity;               // open slots in backend array
-    private Object[] array;             // backend array
+    private T[] array;                  // backend array
 
     /**
-     * Default constructor for MyArrayList.
+     * Default constructor for MyArrayList. Initializes the member variables.
+     * Use valid type.
      * 
      * @param (String type) Specifies datatype of MyArrayList.
      */
-    public MyArrayList(String type) {
-        this.dataType = type;
-        this.array = new Object[DEFAULT];
+    public MyArrayList() {
+        this.array = (T[]) new Object[DEFAULT];
         this.capacity = DEFAULT;
         this.size = 0;
     }
 
     /**
      * Constructor for MyArrayList that specifies the initial capacity.
+     * Initializes the member variables. Use non-negative cap and valid 
+     * type.
      * 
      * @param (String type) Specifies datatype of MyArrayList.
      * @param (int cap) Specifies the initial capacity of MyArrayList.
      */
-    public MyArrayList(String type, int cap) {
-        this.dataType = type;
-        this.array = new Object[cap];
+    public MyArrayList(int cap) {
+        this.array = (T[]) new Object[cap];
         this.capacity = cap;
         this.size = 0;
     }
 
     /**
      * Inserts the specified element at the specified index. Makes sure
-     * type of new element matches the type of MyArrayList and that the
-     * index is valid. If MyArrayList is empty, can only insert at
-     * position 0. May require the creation of a new array twice the size
-     * if backend array is full.
+     * that the index is valid. If MyArrayList is empty, can only insert 
+     * at position 0. May require the creation of a new array twice the 
+     * size if backend array is full.
      * 
-     * @param (Object elem) Element that will be inserted.
+     * @param (T elem) Element that will be inserted.
      * @param (int idx) Position where element will be inserted.
      * @return Returns true if successful, false otherwise.
      */
-    public boolean insert(Object elem, int idx) {
-        String type = elem.getClass().getSimpleName();
-        if (!type.equals(dataType)) {
-            return false;
-        }
+    public boolean insert(T elem, int idx) {
         if (idx < 0 || idx > this.size) {
             return false;
         }
 
         int len = this.array.length;
         if (this.size == len) {
-            Object[] arr = new Object[len * DOUBLE];
+            T[] arr = (T[]) new Object[len * DOUBLE];
             for (int i = 0; i < this.size; i++) {
                 arr[i] = this.array[i];
             }
@@ -114,16 +111,13 @@ public class MyArrayList {
      * Checks if MyArrayList contains a specific element. First
      * verifies type matches the type of MyArrayList.
      * 
-     * @param (Object elem) Element that is looked for.
+     * @param (T elem) Element that is looked for.
      * @return Returns true if element exists, false otherwise.
      */
-    public boolean contains(Object elem) {
-        String type = elem.getClass().getSimpleName();
-        if (type.equals(dataType)) {
-            for (int i = 0; i < this.size; i++) {
-                if (this.array[i].equals(elem)) {
-                    return true;
-                }
+    public boolean contains(T elem) {
+        for (int i = 0; i < this.size; i++) {
+            if (this.array[i].equals(elem)) {
+                return true;
             }
         }
         return false;
@@ -137,11 +131,11 @@ public class MyArrayList {
      * @param (int idx) The position at which to delete an element.
      * @return Returns the element that is deleted.
      */
-    public Object delete(int idx) {
+    public T delete(int idx) {
         if (idx < 0 || idx >= this.size) {
             return null;
         }
-        Object val = this.array[idx];
+        T val = this.array[idx];
         this.array[idx] = null;
 
         if (idx < this.size - 1) {
@@ -161,7 +155,7 @@ public class MyArrayList {
      * @param (int idx) The postion from which to get the element.
      * @return Returns the element at the specified index.
      */
-    public Object get(int idx) {
+    public T get(int idx) {
         return this.array[idx];
     }
 

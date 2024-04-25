@@ -2,7 +2,6 @@
 //
 // Title:              MyArrayList
 // Files:              MyArrayList.java | MyArrayListTester.java
-//
 // Author:             Michael Korelov
 // Email:              korelovmichael@gmail.com
 //
