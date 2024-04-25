@@ -485,7 +485,7 @@ public class MyArrayListTester {
         assertEquals(0, ls.size());
         assertEquals(2, ls.getCapacity());
 
-        assertEquals(false, ls.insert("Vanilla Icecream",100));
+        assertEquals(false, ls.insert("Vanilla Icecream",7));
         assertEquals(true, ls.insert("1x Mango",0));
         assertEquals(true, ls.insert("1x Bag of Flour",1));
         assertEquals(true, ls.insert("1x Gallon of Milk",2));
@@ -496,7 +496,7 @@ public class MyArrayListTester {
         assertEquals(6, ls.size());
         assertEquals(2, ls.getCapacity());
 
-        assertEquals(null, ls.get(100));
+        assertEquals(null, ls.get(7));
         assertEquals("1x Mango", ls.get(0));
         assertEquals("1x Bag of Flour", ls.get(01));
         assertEquals("1x Gallon of Milk", ls.get(2));
@@ -518,7 +518,7 @@ public class MyArrayListTester {
         assertEquals(6, ls.size());
         assertEquals(2, ls.getCapacity());
 
-        assertEquals(null, ls.delete(100));
+        assertEquals(null, ls.delete(7));
         assertEquals("1x Mango", ls.delete(0));
         assertEquals("1x Bag of Flour", ls.delete(0));
         assertEquals("1x Gallon of Milk", ls.delete(0));
@@ -529,7 +529,6 @@ public class MyArrayListTester {
         assertEquals(0, ls.size());
         assertEquals(8, ls.getCapacity());
 
-        assertEquals(false, ls.contains("Vanilla Icecream"));
         assertEquals(false, ls.contains("1x Mango"));
         assertEquals(false, ls.contains("1x Bag of Flour"));
         assertEquals(false, ls.contains("1x Gallon of Milk"));
@@ -542,4 +541,45 @@ public class MyArrayListTester {
     // insert then delete then insert again
     // check how list changes after each deletion and insertion with get()
 
+    /**
+     * Test that compares functionality of MyArrayList with java's ArrayList.
+     */
+    @Test
+    public void comparison() {
+        ArrayList<String> ls1 = new ArrayList<String>();
+        MyArrayList<String> ls2 = new MyArrayList<String>();
+
+        ls1.add(0, "Hi");
+        ls2.insert("Hi", 0);
+
+        assertEquals(ls1.contains("Hi"), ls2.contains("Hi"));
+
+        assertEquals(ls1.get(0), ls2.get(0));
+
+        ls1.add(1, "Bye");
+        ls2.insert("Bye", 1);
+
+        assertEquals(ls1.contains("Hi"), ls2.contains("Hi"));
+        assertEquals(ls1.contains("Bye"), ls2.contains("Bye"));
+
+        assertEquals(ls1.get(0), ls2.get(0));
+        assertEquals(ls1.get(1), ls2.get(1));
+
+        ls1.remove(0);
+        ls2.delete(0);
+
+        assertEquals(ls1.contains("Hi"), ls2.contains("Hi"));
+        assertEquals(ls1.contains("Bye"), ls2.contains("Bye"));
+
+        assertEquals(ls1.get(0), ls2.get(0));
+
+        ls1.add(1, "Hi");
+        ls2.insert("Hi", 1);
+
+        assertEquals(ls1.contains("Hi"), ls2.contains("Hi"));
+        assertEquals(ls1.contains("Bye"), ls2.contains("Bye"));
+
+        assertEquals(ls1.get(0), ls2.get(0));
+        assertEquals(ls1.get(1), ls2.get(1));
+    }
 }

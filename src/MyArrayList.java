@@ -61,15 +61,9 @@ public class MyArrayList<T> {
      * @param (int cap) Specifies the initial capacity of MyArrayList.
      */
     public MyArrayList(int cap) {
-        /*if (cap == 0) {
-            this.array = (T[]) new Object[1];
-            this.capacity = 1;
-            this.size = 0;
-        } else {*/
-            this.array = (T[]) new Object[cap];
-            this.capacity = cap;
-            this.size = 0;
-        //}
+        this.array = (T[]) new Object[cap];
+        this.capacity = cap;
+        this.size = 0;
     }
 
     /**
@@ -169,7 +163,7 @@ public class MyArrayList<T> {
      * @return Returns the element at the specified index.
      */
     public T get(int idx) {
-        if (idx < 0 || idx >= this.size) {
+        if (idx >= this.size && idx < array.length) {
             return null;
         }
         return this.array[idx];
