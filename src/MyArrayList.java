@@ -47,7 +47,7 @@ public class MyArrayList<T> {
      * Constructor for MyArrayList that specifies the initial capacity.
      * Initializes the member variables. Use non-negative cap.
      * 
-     * @param (int cap) Specifies the initial capacity of MyArrayList.
+     * @param int cap Specifies the initial capacity of MyArrayList.
      */
     public MyArrayList(int cap) {
         this.array = (T[]) new Object[cap];
@@ -62,8 +62,8 @@ public class MyArrayList<T> {
      * length if backend array is full. If initial capacity is 0, then 
      * create new array of length 1.
      * 
-     * @param (T elem) Element that will be inserted.
-     * @param (int idx) Position where element will be inserted.
+     * @param T elem Element that will be inserted.
+     * @param int idx Position where element will be inserted.
      * @return Returns true if successful, false otherwise.
      */
     public boolean insert(T elem, int idx) {
@@ -107,7 +107,7 @@ public class MyArrayList<T> {
      * Checks if MyArrayList contains a specific element. First
      * verifies type matches the type of MyArrayList.
      * 
-     * @param (T elem) Element that is looked for.
+     * @param T elem Element that is looked for.
      * @return Returns true if element exists, false otherwise.
      */
     public boolean contains(T elem) {
@@ -124,7 +124,7 @@ public class MyArrayList<T> {
      * index is valid first and shifts remaining elements over
      * if not removed from the end.
      * 
-     * @param (int idx) The position at which to delete an element.
+     * @param int idx The position at which to delete an element.
      * @return Returns the element that is deleted.
      */
     public T delete(int idx) {
@@ -148,7 +148,7 @@ public class MyArrayList<T> {
     /**
      * Gets the element at a specified index in MyArrayList.
      * 
-     * @param (int idx) The postion from which to get the element.
+     * @param int idx The postion from which to get the element.
      * @return Returns the element at the specified index.
      */
     public T get(int idx) {
@@ -184,118 +184,116 @@ public class MyArrayList<T> {
     // TODO
 
     /**
-     * (Write a succinct description of this method here.)
+     * Appends the specified element to the end.
      *
-     * @param (parameter name) (Describe the first parameter here)
-     * @return (description of the return value)
+     * @param T elem Element to be appended.
+     * @return Returns true is succesful and false otherwise.
      */
     public boolean add(T elem) {
         return false;
     }
 
     /**
-     * (Write a succinct description of this method here.)
+     * Appends all of the elements in an array to the end of this list
      *
-     * @param (parameter name) (Describe the first parameter here)
-     * @return (description of the return value)
+     * @param T[] arr Contains the elements to be appended.
+     * @return Returns true is succesful and false otherwise.
      */
     public boolean addAll(T[] arr) {
         return false;
     }
 
     /**
-     * (Write a succinct description of this method here.)
-     *
-     * @param (parameter name) (Describe the first parameter here)
-     * @return (description of the return value)
+     * Removes all elements from the list.
      */
     public void clear() {
     }
 
     /**
-     * (Write a succinct description of this method here.)
+     * Creates a copy of this MyArrayList instance.
      *
-     * @param (parameter name) (Describe the first parameter here)
-     * @return (description of the return value)
+     * @return Returns a shallow copy of this instance.
      */
     public Object clone() {
         return "";
     }
 
     /**
-     * (Write a succinct description of this method here.)
+     * Increases the capacity to ensure that MyArrayList can hold a
+     * certain number of elements.
      *
-     * @param (parameter name) (Describe the first parameter here)
-     * @return (description of the return value)
+     * @param int cap The minimum number of elements that MyArrayList
+     * should hold.
      */
     public void ensureCapacity(int cap) {
 
     }
 
     /**
-     * (Write a succinct description of this method here.)
+     * Finds first occurence of a specific element.
      *
-     * @param (parameter name) (Describe the first parameter here)
-     * @return (description of the return value)
+     * @param T elem The element that is being searched for.
+     * @return Returns index of first occurence of the element or -1
+     * if the element is not found.
      */
     public int indexOf(T elem) {
         return -1;
     }
 
     /**
-     * (Write a succinct description of this method here.)
+     * Checks if list is empty.
      *
-     * @param (parameter name) (Describe the first parameter here)
-     * @return (description of the return value)
+     * @return Returns true if empty and false otherwise.
      */
     public boolean isEmpty() {
         return false;
     }
 
     /**
-     * (Write a succinct description of this method here.)
+     * Finds the last occurence of a specific element.
      *
-     * @param (parameter name) (Describe the first parameter here)
-     * @return (description of the return value)
+     * @param T elem The element that is being searched for.
+     * @return Returns index of last occurence of the element or -1
+     * if the element is not found.
      */
     public int lastIndexOf(T elem) {
         return -1;
     }
 
     /**
-     * (Write a succinct description of this method here.)
+     * Removes the first occurence of a specific element.
      *
-     * @param (parameter name) (Describe the first parameter here)
-     * @return (description of the return value)
+     * @param T elem The element that will be removed.
+     * @return Returns true is succesful and false otherwise.
      */
     public boolean remove(T elem) {
         return false;
     }
 
     /**
-     * (Write a succinct description of this method here.)
+     * Updates the element stored at a certain position.
      *
-     * @param (parameter name) (Describe the first parameter here)
-     * @return (description of the return value)
+     * @param int idx The position at which to update the element.
+     * @param T elem The new element that will replace the original 
+     * one.
+     * @return Returns the previous element.
      */
     public T set(int idx, T elem) {
         return (T) " ";
     }
 
     /**
-     * (Write a succinct description of this method here.)
+     * Converts MyArrayList into an array.
      *
-     * @param (parameter name) (Describe the first parameter here)
-     * @return (description of the return value)
+     * @return Returns an array containing all the elements
+     * in MyArrayList.
      */
     public T[] toArray() {
         return this.array;
     }
     /**
-     * (Write a succinct description of this method here.)
-     *
-     * @param (parameter name) (Describe the first parameter here)
-     * @return (description of the return value)
+     * Trims the capacity of this ArrayList to be the list's current 
+     * size.
      */
     public void trimToSize() {
     }
