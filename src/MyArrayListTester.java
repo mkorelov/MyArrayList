@@ -538,9 +538,6 @@ public class MyArrayListTester {
     }
 
     // Comparison Tests
-    // insert then delete then insert again
-    // check how list changes after each deletion and insertion with get()
-
     /**
      * Test that compares functionality of MyArrayList with java's ArrayList.
      */

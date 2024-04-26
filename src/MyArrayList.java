@@ -19,17 +19,6 @@
  * Has 3 private member variables: a backend array that holds the data, an int 
  * that holds the number of elements in the ArrayList, and an int that holds 
  * the number of free slots in the ArrayList.
- * 
- * 1) Write sanity tests for basic methods. (Done)
- * 2) Implement insert(idx, elem), contains(elem), delete(idx), get(idx), 
- * size() & getCapacity(). (Done)
- * 3) Write advanced tests w/ edge cases.
- * 4) Write sanity tests for advanced methods.
- * 5) Implement trimToSize(), toArray(), sort(), set(idx, elem), remove(elem), 
- * lastIndexOf(elem), isEmpty(), indexOf(elem), ensureCapacity(sz), clear(), 
- * & add(elem).
- * 6) Implement the constructor given an array.
- * 7) Write advanced tests w/ edge cases.
  *
  * Bugs: N/A
  *
@@ -186,5 +175,128 @@ public class MyArrayList<T> {
      */
     public int getCapacity() {
         return this.capacity;
+    }
+
+    // TODO
+    // TODO
+    // TODO
+    // TODO
+    // TODO
+
+    /**
+     * (Write a succinct description of this method here.)
+     *
+     * @param (parameter name) (Describe the first parameter here)
+     * @return (description of the return value)
+     */
+    public boolean add(T elem) {
+        return false;
+    }
+
+    /**
+     * (Write a succinct description of this method here.)
+     *
+     * @param (parameter name) (Describe the first parameter here)
+     * @return (description of the return value)
+     */
+    public boolean addAll(T[] arr) {
+        return false;
+    }
+
+    /**
+     * (Write a succinct description of this method here.)
+     *
+     * @param (parameter name) (Describe the first parameter here)
+     * @return (description of the return value)
+     */
+    public void clear() {
+    }
+
+    /**
+     * (Write a succinct description of this method here.)
+     *
+     * @param (parameter name) (Describe the first parameter here)
+     * @return (description of the return value)
+     */
+    public Object clone() {
+        return "";
+    }
+
+    /**
+     * (Write a succinct description of this method here.)
+     *
+     * @param (parameter name) (Describe the first parameter here)
+     * @return (description of the return value)
+     */
+    public void ensureCapacity(int cap) {
+
+    }
+
+    /**
+     * (Write a succinct description of this method here.)
+     *
+     * @param (parameter name) (Describe the first parameter here)
+     * @return (description of the return value)
+     */
+    public int indexOf(T elem) {
+        return -1;
+    }
+
+    /**
+     * (Write a succinct description of this method here.)
+     *
+     * @param (parameter name) (Describe the first parameter here)
+     * @return (description of the return value)
+     */
+    public boolean isEmpty() {
+        return false;
+    }
+
+    /**
+     * (Write a succinct description of this method here.)
+     *
+     * @param (parameter name) (Describe the first parameter here)
+     * @return (description of the return value)
+     */
+    public int lastIndexOf(T elem) {
+        return -1;
+    }
+
+    /**
+     * (Write a succinct description of this method here.)
+     *
+     * @param (parameter name) (Describe the first parameter here)
+     * @return (description of the return value)
+     */
+    public boolean remove(T elem) {
+        return false;
+    }
+
+    /**
+     * (Write a succinct description of this method here.)
+     *
+     * @param (parameter name) (Describe the first parameter here)
+     * @return (description of the return value)
+     */
+    public T set(int idx, T elem) {
+        return (T) " ";
+    }
+
+    /**
+     * (Write a succinct description of this method here.)
+     *
+     * @param (parameter name) (Describe the first parameter here)
+     * @return (description of the return value)
+     */
+    public T[] toArray() {
+        return this.array;
+    }
+    /**
+     * (Write a succinct description of this method here.)
+     *
+     * @param (parameter name) (Describe the first parameter here)
+     * @return (description of the return value)
+     */
+    public void trimToSize() {
     }
 }
