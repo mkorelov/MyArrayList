@@ -11,8 +11,8 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 /**
- * Contains the JUnit Tests: Unit & Integration Tests, which compare 
- * functionality to java's ArrayList. get(idx), size(), & getCapacity() are 
+ * Contains the JUnit Tests for MyArrayList: Unit Tests, Integration Tests, and 
+ * Comparison Tests to java's ArrayList. get(idx), size(), & getCapacity() are 
  * tested within the tests for other methods.
  *
  * Bugs: N/A
@@ -471,6 +471,193 @@ public class MyArrayListTester {
         assertEquals((Character)'L', ls.get(2));
 
         assertEquals((Character)'1', ls.get(3));
+    }
+
+    /**
+     * Sanity test of the add() method.
+     */
+    @Test
+    public void testAdd1() {
+        MyArrayList<String> ls = new MyArrayList<String>();
+
+        assertEquals(true, ls.add("pineapple"));
+
+        assertEquals(true, ls.contains("pineapple"));
+    }
+
+    /**
+     * Sanity test of the addAll() method.
+     */
+    @Test
+    public void testAddAll1() {
+        MyArrayList<String> ls = new MyArrayList<String>();
+        String[] list = {"1", "2", "3"};
+
+        assertEquals(true, ls.addAll(list));
+
+        assertEquals(true, ls.contains("1"));
+
+        assertEquals(true, ls.contains("2"));
+
+        assertEquals(true, ls.contains("3"));
+
+        assertEquals("1", ls.get(0));
+
+        assertEquals("2", ls.get(1));
+
+        assertEquals("3", ls.get(2));
+    }
+
+    /**
+     * Sanity test of the clear() method.
+     */
+    @Test
+    public void testClear1() {
+        MyArrayList<Integer> ls = new MyArrayList<Integer>();
+
+        ls.add(3);
+
+        assertEquals(true, ls.contains(3));
+
+        assertEquals((Integer) 3, ls.get(0));
+
+        assertEquals(1, ls.size());
+
+        assertEquals(9, ls.getCapacity());
+
+        ls.clear();
+
+        assertEquals(false, ls.contains(3));
+
+        assertEquals(0, ls.size());
+
+        assertEquals(10, ls.getCapacity());
+    }
+
+    /**
+     * Sanity test of the clone() method.
+     */
+    @Test
+    public void testClone1() {
+        MyArrayList<String> ls1 = new MyArrayList<String>();
+
+        MyArrayList<String> ls2 = ls1.clone();
+
+        assertEquals(true, ls1.equals(ls2));
+
+        assertEquals(false, ls1 == ls2);
+
+    }
+
+    /**
+     * Sanity test of the ensureCapacity() method.
+     */
+    @Test
+    public void testEnsureCapacity1() {
+        MyArrayList<String> ls = new MyArrayList<String>(3);
+
+        assertEquals(3, ls.getCapacity());
+
+        ls.ensureCapacity(5);
+
+        assertEquals(5, ls.getCapacity());
+    }
+
+    /**
+     * Sanity test of the indexOf() method.
+     */
+    @Test
+    public void testIndexOf1() {
+        MyArrayList<String> ls = new MyArrayList<String>();
+        
+        ls.add("me");
+
+        assertEquals(0, ls.indexOf("me"));
+    }
+
+    /**
+     * Sanity test of the isEmpty() method.
+     */
+    @Test
+    public void testIsEmpty1() {
+        MyArrayList<String> ls = new MyArrayList<String>();
+
+        assertEquals(true, ls.isEmpty());
+
+        ls.add("anything");
+
+        assertEquals(false, ls.isEmpty());
+    }
+
+    /**
+     * Sanity test of the lastIndexOf() method.
+     */
+    @Test
+    public void testLastIndexOf1() {
+        MyArrayList<String> ls = new MyArrayList<String>();
+
+        ls.add("me");
+
+        assertEquals(0, ls.indexOf("me"));
+    }
+
+    /**
+     * Sanity test of the remove() method.
+     */
+    @Test
+    public void testRemove1() {
+        MyArrayList<String> ls = new MyArrayList<String>();
+
+        ls.add("you");
+
+        assertEquals(true, ls.remove("you"));
+    }
+
+    /**
+     * Sanity test of the set() method.
+     */
+    @Test
+    public void testSet1() {
+        MyArrayList<String> ls = new MyArrayList<String>();
+
+        ls.add("you");
+
+        assertEquals("you", ls.get(0));
+
+        assertEquals("you", ls.set(0, "me"));
+
+        assertEquals("me", ls.get(0));
+    }
+
+    /**
+     * Sanity test of the toArray() method.
+     */
+    @Test
+    public void testToArray1() {
+        MyArrayList<String> ls = new MyArrayList<String>();
+        String[] list = {"1", "2", "3"};
+
+        ls.addAll(list);
+
+        assertEquals(true, list.equals(ls.toArray()));
+    }
+
+    /**
+     * Sanity test of the trimToSize() method.
+     */
+    @Test
+    public void testTrimToSize1() {
+        MyArrayList<String> ls = new MyArrayList<String>(4);
+
+        assertEquals(4, ls.getCapacity());
+
+        ls.add("5");
+
+        assertEquals(3, ls.getCapacity());
+
+        ls.trimToSize();
+
+        assertEquals(1, ls.getCapacity());
     }
 
     // Integration Test

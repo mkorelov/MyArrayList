@@ -214,8 +214,8 @@ public class MyArrayList<T> {
      *
      * @return Returns a shallow copy of this instance.
      */
-    public Object clone() {
-        return "";
+    public MyArrayList<T> clone() {
+        return this;
     }
 
     /**
