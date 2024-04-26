@@ -258,6 +258,16 @@ public class MyArrayListTester {
     }
 
     /**
+     * Unit test of the insert() method. Invalid index.
+     */
+    @Test
+    public void testInsert8() {
+        MyArrayList<Integer> ls = new MyArrayList<Integer>();
+
+        assertEquals(false, ls.insert(8, 11));
+    }
+
+    /**
      * Sanity test of the contains() method.
      */
     @Test
@@ -272,7 +282,7 @@ public class MyArrayListTester {
     }
 
     /**
-     * Unit test of the contains() method.
+     * Unit test of the contains() method. Element never existed.
      */
     @Test
     public void testContains2() {
@@ -474,6 +484,16 @@ public class MyArrayListTester {
     }
 
     /**
+     * Unit test of the delete() method. Invalid index.
+     */
+    @Test
+    public void testDelete8() {
+        MyArrayList<Character> ls = new MyArrayList<Character>(2);
+
+        assertEquals(null, ls.delete(4));
+    }
+
+    /**
      * Sanity test of the add() method.
      */
     @Test
@@ -483,6 +503,27 @@ public class MyArrayListTester {
         assertEquals(true, ls.add("pineapple"));
 
         assertEquals(true, ls.contains("pineapple"));
+    }
+
+    /**
+     * Unit test of the add() method. Add and Insert combinations.
+     */
+    @Test
+    public void testAdd2() {
+    }
+
+    /**
+     * Unit test of the add() method. Add to full list.
+     */
+    @Test
+    public void testAdd3() {
+    }
+
+    /**
+     * Unit test of the add() method. Add after removing/deleting.
+     */
+    @Test
+    public void testAdd4() {
     }
 
     /**
@@ -506,6 +547,34 @@ public class MyArrayListTester {
         assertEquals("2", ls.get(1));
 
         assertEquals("3", ls.get(2));
+    }
+
+    /**
+     * Unit test of the addAll() method. AddAll after removing/deleting.
+     */
+    @Test
+    public void testAddAll2() {
+    }
+
+    /**
+     * Unit test of the addAll() method. AddAll, Insert, and Add combinations.
+     */
+    @Test
+    public void testAddAll3() {
+    }
+
+    /**
+     * Unit test of the addAll() method. AddAll when full.
+     */
+    @Test
+    public void testAddAll4() {
+    }
+
+    /**
+     * Unit test of the addAll() method. AddAll when almost full.
+     */
+    @Test
+    public void testAddAll5() {
     }
 
     /**
@@ -535,10 +604,24 @@ public class MyArrayListTester {
     }
 
     /**
-     * Sanity test of the clone() method.
+     * Unit test of the clear() method. Clear when full.
      */
     @Test
-    public void testClone1() {
+    public void testClear2() {
+    }
+
+    /**
+     * Unit test of the clear() method. Clear when empty.
+     */
+    @Test
+    public void testClear3() {
+    }
+
+    /**
+     * Unit test of the clone() method.
+     */
+    @Test
+    public void testClone() {
         MyArrayList<String> ls1 = new MyArrayList<String>();
 
         MyArrayList<String> ls2 = ls1.clone();
@@ -564,6 +647,20 @@ public class MyArrayListTester {
     }
 
     /**
+     * Unit test of the ensureCapacity() method. When full.
+     */
+    @Test
+    public void testEnsureCapacity2() {
+    }
+
+    /**
+     * Unit test of the ensureCapacity() method. When partially full.
+     */
+    @Test
+    public void testEnsureCapacity3() {
+    }
+
+    /**
      * Sanity test of the indexOf() method.
      */
     @Test
@@ -573,6 +670,28 @@ public class MyArrayListTester {
         ls.add("me");
 
         assertEquals(0, ls.indexOf("me"));
+    }
+
+    /**
+     * Unit test of the indexOf() method. Duplicate elements.
+     */
+    @Test
+    public void testIndexOf2() {
+    }
+
+    /**
+     * Unit test of the indexOf() method. Non-duplicate elements.
+     */
+    @Test
+    public void testIndexOf3() {
+    }
+
+    /**
+     * Unit test of the indexOf() method. Empty list or element doesn't
+     * exist.
+     */
+    @Test
+    public void testIndexOf4() {
     }
 
     /**
@@ -590,6 +709,21 @@ public class MyArrayListTester {
     }
 
     /**
+     * Unit test of the isEmpty() method. Full list.
+     */
+    @Test
+    public void testIsEmpty2() {
+        
+    }
+
+    /**
+     * Unit test of the isEmpty() method. After removing/deleting.
+     */
+    @Test
+    public void testIsEmpty3() {
+    }
+
+    /**
      * Sanity test of the lastIndexOf() method.
      */
     @Test
@@ -602,6 +736,28 @@ public class MyArrayListTester {
     }
 
     /**
+     * Unit test of the lastIndexOf() method. Empty or element
+     * doesn't exist.
+     */
+    @Test
+    public void testLastIndexOf2() {
+    }
+
+    /**
+     * Unit test of the lastIndexOf() method. Duplicate elements.
+     */
+    @Test
+    public void testLastIndexOf3() {
+    }
+
+    /**
+     * Unit test of the lastIndexOf() method. Non-duplicates elements.
+     */
+    @Test
+    public void testLastIndexOf4() {
+    }
+
+    /**
      * Sanity test of the remove() method.
      */
     @Test
@@ -611,6 +767,35 @@ public class MyArrayListTester {
         ls.add("you");
 
         assertEquals(true, ls.remove("you"));
+    }
+
+    /**
+     * Unit test of the remove() method. Remove/delete combinations.
+     */
+    @Test
+    public void testRemove2() {
+    }
+
+    /**
+     * Unit test of the remove() method. Remove when full.
+     */
+    @Test
+    public void testRemove3() {
+    }
+
+    /**
+     * Unit test of the remove() method. Remove when empty
+     * or element doesn't exist.
+     */
+    @Test
+    public void testRemove4() {
+    }
+
+    /**
+     * Unit test of the remove() method. Remve when duplicates.
+     */
+    @Test
+    public void testRemove5() {
     }
 
     /**
@@ -630,6 +815,34 @@ public class MyArrayListTester {
     }
 
     /**
+     * Unit test of the set() method. Set when duplicates.
+     */
+    @Test
+    public void testSet2() {
+    }
+
+    /**
+     * Unit test of the set() method. Set when empty.
+     */
+    @Test
+    public void testSet3() {
+    }
+
+    /**
+     * Unit test of the set() method. Set when full.
+     */
+    @Test
+    public void testSet4() {
+    }
+
+    /**
+     * Unit test of the set() method. Set invalid index.
+     */
+    @Test
+    public void testSet5() {
+    }
+
+    /**
      * Sanity test of the toArray() method.
      */
     @Test
@@ -640,6 +853,27 @@ public class MyArrayListTester {
         ls.addAll(list);
 
         assertEquals(true, list.equals(ls.toArray()));
+    }
+
+    /**
+     * Unit test of the toArray() method. After add/insert.
+     */
+    @Test
+    public void testToArray2() {
+    }
+
+    /**
+     * Unit test of the toArray() method. Empty list.
+     */
+    @Test
+    public void testToArray3() {
+    }
+
+    /**
+     * Unit test of the toArray() method. Full list.
+     */
+    @Test
+    public void testToArray4() {
     }
 
     /**
@@ -658,6 +892,20 @@ public class MyArrayListTester {
         ls.trimToSize();
 
         assertEquals(1, ls.getCapacity());
+    }
+
+    /**
+     * Unit test of the trimToSize() method. Empty list.
+     */
+    @Test
+    public void testTrimToSize2() {
+    }
+
+    /**
+     * Unit test of the trimToSize() method. Full list.
+     */
+    @Test
+    public void testTrimToSize3() {
     }
 
     // Integration Test
