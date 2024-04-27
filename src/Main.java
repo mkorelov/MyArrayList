@@ -7,11 +7,13 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
 
 /**
- * Class that contains the main method. Used to compare functionality of
- * java's ArrayList and MyArrayList;
+ * Class that contains the main method. Used to debug MyArrayList and compare 
+ * functionality with java's ArrayList.
  *
  * Bugs: N/A
  *

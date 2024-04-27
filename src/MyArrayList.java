@@ -98,7 +98,7 @@ public class MyArrayList<T> {
         int len = this.array.length;
         if (this.size == len) {
             T[] arr = (T[]) new Object[len * DOUBLE];
-            capacity += len;
+            this.capacity += len;
             for (int i = 0; i < this.size; i++) {
                 arr[i] = this.array[i];
             }
@@ -192,11 +192,25 @@ public class MyArrayList<T> {
         return this.capacity;
     }
 
-    // TODO
-    // TODO
-    // TODO
-    // TODO
-    // TODO
+    /**
+     * Determines if two MyArrayList instances are equal. Used
+     * to test clone() method.
+     * 
+     * @param MyArrayList<T> ls The instance being compared to.
+     * @return Returns true if the instances are equivalent.
+     */
+    public boolean equals(MyArrayList<T> ls) {
+        if (this.size() == ls.size() 
+                && this.getCapacity() == ls.getCapacity()) {
+                    for (int i = 0; i < this.size; i++) {
+                        if (!this.get(i).equals(ls.get(i))) {
+                            return false;
+                        }
+                    }
+                    return true;
+        }
+        return false;
+    }
 
     /**
      * Appends the specified element to the end.
@@ -205,23 +219,39 @@ public class MyArrayList<T> {
      * @return Returns true is succesful and false otherwise.
      */
     public boolean add(T elem) {
-        return false;
+        return insert(elem, this.size);
     }
 
     /**
-     * Appends all of the elements in an array to the end of this list
+     * Appends all of the elements in an array to the end of this list.
      *
      * @param T[] arr Contains the elements to be appended.
-     * @return Returns true is succesful and false otherwise.
+     * @return Returns true is succesfully adds all elements and false otherwise.
      */
     public boolean addAll(T[] arr) {
-        return false;
+        int flag = 0;
+        for (int i = 0; i < arr.length; i++) {
+            boolean success = add(arr[i]);
+            if (success == false) {
+                flag = 1;
+            }
+        }
+        if (flag == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
      * Removes all elements from the list.
      */
     public void clear() {
+        for (int i = 0; i < this.size; i++) {
+            this.array[i] = null;
+        }
+        this.size = 0;
+        this.capacity = this.array.length;
     }
 
     /**
@@ -230,7 +260,11 @@ public class MyArrayList<T> {
      * @return Returns a shallow copy of this instance.
      */
     public MyArrayList<T> clone() {
-        return this;
+        MyArrayList<T> dup = new MyArrayList<>(this.capacity + this.size);
+        for (int i = 0; i < this.size; i++) {
+            dup.add(this.array[i]);
+        }
+        return dup;
     }
 
     /**
@@ -241,7 +275,14 @@ public class MyArrayList<T> {
      * should hold.
      */
     public void ensureCapacity(int cap) {
-
+        if (cap > this.capacity) {
+            T[] arr = (T[]) new Object[cap + this.size];
+            for (int i = 0; i < this.size; i++) {
+                arr[i] = this.array[i];
+            }
+            this.capacity = cap;
+            this.array = arr;
+        }
     }
 
     /**
@@ -252,6 +293,11 @@ public class MyArrayList<T> {
      * if the element is not found.
      */
     public int indexOf(T elem) {
+        for (int i = 0; i < this.size; i++) {
+            if (elem.equals(this.array[i])) {
+                return i;
+            }
+        }
         return -1;
     }
 
@@ -261,7 +307,11 @@ public class MyArrayList<T> {
      * @return Returns true if empty and false otherwise.
      */
     public boolean isEmpty() {
-        return false;
+        if (this.size == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -272,10 +322,16 @@ public class MyArrayList<T> {
      * if the element is not found.
      */
     public int lastIndexOf(T elem) {
-        return -1;
+        int idx = -1;
+        for (int i = 0; i < this.size; i++) {
+            if (elem.equals(this.array[i])) {
+                idx = i;
+            }
+        }
+        return idx;
     }
 
-    /**
+    /** TODO
      * Removes the first occurence of a specific element.
      *
      * @param T elem The element that will be removed.
@@ -285,7 +341,7 @@ public class MyArrayList<T> {
         return false;
     }
 
-    /**
+    /** TODO
      * Updates the element stored at a certain position.
      *
      * @param int idx The position at which to update the element.
@@ -303,10 +359,14 @@ public class MyArrayList<T> {
      * @return Returns an array containing all the elements
      * in MyArrayList.
      */
-    public T[] toArray() {
-        return this.array;
+    public Object[] toArray() {
+        Object[] arr = new Object[this.size];
+        for (int i = 0; i < this.size; i++) {
+            arr[i] = this.array[i];
+        }
+        return arr;
     }
-    /**
+    /** TODO
      * Trims the capacity of this ArrayList to be the list's current 
      * size.
      */

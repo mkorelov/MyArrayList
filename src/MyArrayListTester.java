@@ -565,6 +565,10 @@ public class MyArrayListTester {
         assertEquals(true, ls.add("pineapple"));
 
         assertEquals(true, ls.contains("pineapple"));
+
+        assertEquals(1, ls.size());
+
+        assertEquals(9, ls.getCapacity());
     }
 
     /**
@@ -609,6 +613,10 @@ public class MyArrayListTester {
         assertEquals("2", ls.get(1));
 
         assertEquals("3", ls.get(2));
+
+        assertEquals(3, ls.size());
+
+        assertEquals(7, ls.getCapacity());
     }
 
     /**
@@ -688,10 +696,9 @@ public class MyArrayListTester {
 
         MyArrayList<String> ls2 = ls1.clone();
 
-        assertEquals(true, ls1.equals(ls2));
-
         assertEquals(false, ls1 == ls2);
 
+        assertEquals(true, ls1.equals(ls2));
     }
 
     /**
@@ -914,7 +921,10 @@ public class MyArrayListTester {
 
         ls.addAll(list);
 
-        assertEquals(true, list.equals(ls.toArray()));
+        Object[] arr = ls.toArray();
+        for (int i = 0; i < arr.length; i++) {
+            assertEquals(list[i], arr[i]);
+        }
     }
 
     /**
