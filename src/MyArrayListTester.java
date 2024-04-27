@@ -71,7 +71,7 @@ public class MyArrayListTester {
     }
 
     /**
-     * Sanity test of the Other constructor.
+     * Sanity test of the constructor given array.
      */
     @Test
     public void testOtherConstructor1() {
@@ -93,7 +93,7 @@ public class MyArrayListTester {
     }
 
     /**
-     * Unit test of the Other constructor. Works for other types.
+     * Unit test of the constructor given array. Works for other types.
      */
     @Test
     public void testOtherConstructor2() { 
@@ -119,7 +119,7 @@ public class MyArrayListTester {
     }
 
     /**
-     * Unit test of the Other constructor. Empty list.
+     * Unit test of the constructor given array. Empty list.
      */
     @Test
     public void testOtherConstructor3() { 

@@ -4,7 +4,7 @@
 3) Write advanced tests w/ edge cases. (Done)
 4) Write sanity tests for advanced methods. (Done)
 5) Implement trimToSize(), toArray(), set(idx, elem), remove(elem), lastIndexOf(elem), isEmpty(), indexOf(elem), ensureCapacity(sz), clone(), clear(), addAll(arr), & add(elem).
-6) Implement the constructor given an array.
+6) Implement the constructor given an array. (Done)
 7) Write advanced tests w/ edge cases.
 
 ## Getting Started

@@ -61,7 +61,13 @@ public class MyArrayList<T> {
      * @param T[] arr The array that is used to create MyArrayList.
      */
     public MyArrayList(T[] arr) {
-        
+        int len = arr.length;
+        this.array = (T[]) new Object[len];
+        for (int i = 0; i < len; i++) {
+            this.array[i] = arr[i];
+        }
+        this.capacity = 0;
+        this.size = len;
     }
 
     /**
