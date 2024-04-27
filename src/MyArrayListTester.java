@@ -59,7 +59,7 @@ public class MyArrayListTester {
     }
 
     /**
-     * Unit test of the Default constructor. Works for other object types.
+     * Unit test of the Default constructor. Works for other types.
      */
     @Test
     public void testConstructor2() {
@@ -68,6 +68,68 @@ public class MyArrayListTester {
         assertEquals(0, ls.size());
 
         assertEquals(15, ls.getCapacity());
+    }
+
+    /**
+     * Sanity test of the Other constructor.
+     */
+    @Test
+    public void testOtherConstructor1() {
+        String[] list = {"no", "yes"};
+
+        MyArrayList<String> ls = new MyArrayList<String>(list);
+
+        assertEquals(2, ls.size());
+
+        assertEquals(0, ls.getCapacity());
+
+        assertEquals("no", ls.get(0));
+
+        assertEquals("yes", ls.get(1));
+
+        assertEquals(true, ls.contains("yes"));
+
+        assertEquals(true, ls.contains("no"));
+    }
+
+    /**
+     * Unit test of the Other constructor. Works for other types.
+     */
+    @Test
+    public void testOtherConstructor2() { 
+        Integer[] list = {2, 1, 5};
+
+        MyArrayList<Integer> ls = new MyArrayList<Integer>(list);
+
+        assertEquals(3, ls.size());
+
+        assertEquals(0, ls.getCapacity());
+
+        assertEquals((Integer) 2, ls.get(0));
+
+        assertEquals((Integer) 1, ls.get(1));
+
+        assertEquals((Integer) 5, ls.get(2));
+
+        assertEquals(true, ls.contains(2));
+
+        assertEquals(true, ls.contains(1));
+
+        assertEquals(true, ls.contains(5));
+    }
+
+    /**
+     * Unit test of the Other constructor. Empty list.
+     */
+    @Test
+    public void testOtherConstructor3() { 
+        String[] list = {};
+
+        MyArrayList<String> ls = new MyArrayList<String>(list);
+
+        assertEquals(0, ls.size());
+
+        assertEquals(0, ls.getCapacity());
     }
 
     /**

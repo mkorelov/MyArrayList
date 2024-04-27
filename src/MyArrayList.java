@@ -56,6 +56,15 @@ public class MyArrayList<T> {
     }
 
     /**
+     * Constructor for MyArrayList that initializes based on an array.
+     * 
+     * @param T[] arr The array that is used to create MyArrayList.
+     */
+    public MyArrayList(T[] arr) {
+        
+    }
+
+    /**
      * Inserts the specified element at the specified index. Makes sure
      * that the index is valid. If MyArrayList is empty, can only insert 
      * at position 0. May require the creation of a new array twice the 
