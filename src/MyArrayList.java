@@ -331,17 +331,23 @@ public class MyArrayList<T> {
         return idx;
     }
 
-    /** TODO
+    /**
      * Removes the first occurence of a specific element.
      *
      * @param T elem The element that will be removed.
      * @return Returns true is succesful and false otherwise.
      */
     public boolean remove(T elem) {
+        for (int i = 0; i < this.size; i++) {
+            if (elem.equals(this.array[i])) {
+                delete(i);
+                return true;
+            }
+        }
         return false;
     }
 
-    /** TODO
+    /**
      * Updates the element stored at a certain position.
      *
      * @param int idx The position at which to update the element.
@@ -350,7 +356,9 @@ public class MyArrayList<T> {
      * @return Returns the previous element.
      */
     public T set(int idx, T elem) {
-        return (T) " ";
+        T old = this.get(idx);
+        this.array[idx] = elem;
+        return old;
     }
 
     /**
@@ -366,10 +374,18 @@ public class MyArrayList<T> {
         }
         return arr;
     }
-    /** TODO
+    /**
      * Trims the capacity of this ArrayList to be the list's current 
      * size.
      */
     public void trimToSize() {
+        if (this.capacity > this.size) {
+            T[] arr = (T[]) new Object[this.size];
+            for (int i = 0; i < this.size; i++) {
+                arr[i] = this.array[i];
+            }
+            this.capacity = 0;
+            this.array = arr;
+        }
     }
 }

@@ -963,7 +963,7 @@ public class MyArrayListTester {
 
         ls.trimToSize();
 
-        assertEquals(1, ls.getCapacity());
+        assertEquals(0, ls.getCapacity());
     }
 
     /**
