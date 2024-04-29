@@ -3,13 +3,9 @@
 2) Implement insert(idx, elem), contains(elem), delete(idx), get(idx), size() & getCapacity(). (Done)
 3) Write advanced tests w/ edge cases. (Done)
 4) Write sanity tests for advanced methods. (Done)
-5) Implement trimToSize(), toArray(), set(idx, elem), remove(elem), lastIndexOf(elem), isEmpty(), indexOf(elem), ensureCapacity(sz), clone(), clear(), addAll(arr), & add(elem).
+5) Implement trimToSize(), toArray(), set(idx, elem), remove(elem), lastIndexOf(elem), isEmpty(), indexOf(elem), ensureCapacity(sz), clone(), clear(), addAll(arr), & add(elem). (Done)
 6) Implement the constructor given an array. (Done)
-7) Write advanced tests w/ edge cases.
-
-## Getting Started
-
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+7) Write advanced tests w/ edge cases. (Done)
 
 ## Folder Structure
 
@@ -19,9 +15,3 @@ The workspace contains two folders by default, where:
 - `lib`: the folder to maintain dependencies
 
 Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).

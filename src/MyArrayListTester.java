@@ -576,6 +576,17 @@ public class MyArrayListTester {
      */
     @Test
     public void testAdd2() {
+        MyArrayList<String> ls = new MyArrayList<String>();
+
+        assertEquals(true, ls.add("pineapple"));
+
+        assertEquals(true, ls.insert("mango", 0));
+
+        assertEquals("mango", ls.get(0));
+
+        assertEquals("pineapple", ls.get(1));
+
+        assertEquals(2, ls.size());
     }
 
     /**
@@ -583,6 +594,31 @@ public class MyArrayListTester {
      */
     @Test
     public void testAdd3() {
+        MyArrayList<String> ls = new MyArrayList<String>(3);
+
+        assertEquals(true, ls.add("pineapple"));
+
+        assertEquals(true, ls.add("kiwi"));
+
+        assertEquals(true, ls.add("pear"));
+
+        assertEquals(3, ls.size());
+
+        assertEquals(0, ls.getCapacity());
+
+        assertEquals(true, ls.add("mango"));
+
+        assertEquals(4, ls.size());
+
+        assertEquals(2, ls.getCapacity());
+
+        assertEquals("pineapple", ls.get(0));
+
+        assertEquals("kiwi", ls.get(1));
+
+        assertEquals("pear", ls.get(2));
+
+        assertEquals("mango", ls.get(3));
     }
 
     /**
@@ -590,6 +626,25 @@ public class MyArrayListTester {
      */
     @Test
     public void testAdd4() {
+        MyArrayList<String> ls = new MyArrayList<String>(3);
+
+        assertEquals(true, ls.add("pineapple"));
+
+        assertEquals(true, ls.add("kiwi"));
+
+        assertEquals(true, ls.add("pear"));
+
+        assertEquals(3, ls.size());
+
+        assertEquals(0, ls.getCapacity());
+
+        ls.remove("pear");
+
+        assertEquals(true, ls.add("mango"));
+
+        assertEquals(3, ls.size());
+
+        assertEquals(0, ls.getCapacity());
     }
 
     /**
@@ -624,6 +679,29 @@ public class MyArrayListTester {
      */
     @Test
     public void testAddAll2() {
+        MyArrayList<String> ls = new MyArrayList<String>();
+
+        ls.add("7");
+        
+        ls.add("10");
+
+        ls.remove("7");
+
+        String[] list = {"1", "2", "3"};
+
+        assertEquals(true, ls.addAll(list));
+
+        assertEquals("10", ls.get(0));
+
+        assertEquals("1", ls.get(1));
+
+        assertEquals("2", ls.get(2));
+
+        assertEquals("3", ls.get(3));
+
+        assertEquals(4, ls.size());
+
+        assertEquals(6, ls.getCapacity());
     }
 
     /**
@@ -631,6 +709,22 @@ public class MyArrayListTester {
      */
     @Test
     public void testAddAll3() {
+        MyArrayList<String> ls = new MyArrayList<String>();
+        String[] list = {"1", "3"};
+
+        assertEquals(true, ls.addAll(list));
+
+        ls.insert("2", 1);
+
+        assertEquals("1", ls.get(0));
+
+        assertEquals("2", ls.get(1));
+
+        assertEquals("3", ls.get(2));
+
+        assertEquals(3, ls.size());
+
+        assertEquals(7, ls.getCapacity());
     }
 
     /**
@@ -638,6 +732,33 @@ public class MyArrayListTester {
      */
     @Test
     public void testAddAll4() {
+        MyArrayList<String> ls = new MyArrayList<String>(2);
+
+        assertEquals(true, ls.add("pineapple"));
+
+        assertEquals(true, ls.add("kiwi"));
+
+        assertEquals(2, ls.size());
+
+        assertEquals(0, ls.getCapacity());
+
+        String[] list = {"carrot", "cucumber", "lettuce"};
+
+        assertEquals(true, ls.addAll(list));
+
+        assertEquals(5, ls.size());
+
+        assertEquals(3, ls.getCapacity());
+
+        assertEquals("pineapple", ls.get(0));
+
+        assertEquals("kiwi", ls.get(1));
+
+        assertEquals("carrot", ls.get(2));
+
+        assertEquals("cucumber", ls.get(3));
+
+        assertEquals("lettuce", ls.get(4));
     }
 
     /**
@@ -645,6 +766,33 @@ public class MyArrayListTester {
      */
     @Test
     public void testAddAll5() {
+        MyArrayList<String> ls = new MyArrayList<String>(3);
+
+        assertEquals(true, ls.add("pineapple"));
+
+        assertEquals(true, ls.add("kiwi"));
+
+        assertEquals(2, ls.size());
+
+        assertEquals(1, ls.getCapacity());
+
+        String[] list = {"carrot", "cucumber", "lettuce"};
+
+        assertEquals(true, ls.addAll(list));
+
+        assertEquals(5, ls.size());
+
+        assertEquals(1, ls.getCapacity());
+
+        assertEquals("pineapple", ls.get(0));
+
+        assertEquals("kiwi", ls.get(1));
+
+        assertEquals("carrot", ls.get(2));
+
+        assertEquals("cucumber", ls.get(3));
+
+        assertEquals("lettuce", ls.get(4));
     }
 
     /**
@@ -678,6 +826,17 @@ public class MyArrayListTester {
      */
     @Test
     public void testClear2() {
+        MyArrayList<String> ls = new MyArrayList<String>(2);
+
+        ls.add("steve");
+
+        ls.add("bob");
+
+        assertEquals(2, ls.size());
+
+        ls.clear();
+
+        assertEquals(0, ls.size());
     }
 
     /**
@@ -685,6 +844,13 @@ public class MyArrayListTester {
      */
     @Test
     public void testClear3() {
+        MyArrayList<String> ls = new MyArrayList<String>();
+
+        assertEquals(0, ls.size());
+
+        ls.clear();
+
+        assertEquals(0, ls.size());
     }
 
     /**
@@ -720,6 +886,19 @@ public class MyArrayListTester {
      */
     @Test
     public void testEnsureCapacity2() {
+        MyArrayList<String> ls = new MyArrayList<String>(3);
+
+        assertEquals(3, ls.getCapacity());
+
+        ls.add("one");
+
+        ls.add("two");
+
+        ls.add("three");
+
+        ls.ensureCapacity(5);
+
+        assertEquals(5, ls.getCapacity());
     }
 
     /**
@@ -727,6 +906,19 @@ public class MyArrayListTester {
      */
     @Test
     public void testEnsureCapacity3() {
+        MyArrayList<String> ls = new MyArrayList<String>(4);
+
+        assertEquals(4, ls.getCapacity());
+
+        ls.add("one");
+
+        ls.add("two");
+
+        assertEquals(2, ls.getCapacity());
+
+        ls.ensureCapacity(6);
+
+        assertEquals(6, ls.getCapacity());
     }
 
     /**
@@ -746,6 +938,15 @@ public class MyArrayListTester {
      */
     @Test
     public void testIndexOf2() {
+        MyArrayList<String> ls = new MyArrayList<String>();
+
+        ls.add("me");
+
+        ls.add("me");
+
+        ls.add("me");
+
+        assertEquals(0, ls.indexOf("me"));
     }
 
     /**
@@ -753,6 +954,15 @@ public class MyArrayListTester {
      */
     @Test
     public void testIndexOf3() {
+        MyArrayList<String> ls = new MyArrayList<String>();
+
+        ls.add("me");
+
+        ls.add("u");
+
+        ls.add("i");
+
+        assertEquals(1, ls.indexOf("u"));
     }
 
     /**
@@ -761,6 +971,13 @@ public class MyArrayListTester {
      */
     @Test
     public void testIndexOf4() {
+        MyArrayList<String> ls = new MyArrayList<String>();
+
+        assertEquals(-1, ls.indexOf("me"));
+
+        ls.add("me");
+
+        assertEquals(-1, ls.indexOf("you"));
     }
 
     /**
@@ -782,6 +999,19 @@ public class MyArrayListTester {
      */
     @Test
     public void testIsEmpty2() {
+        MyArrayList<String> ls = new MyArrayList<String>(4);
+
+        assertEquals(true, ls.isEmpty());
+
+        ls.add("1");
+
+        ls.add("2");
+
+        ls.add("3");
+
+        ls.add("4");
+
+        assertEquals(false, ls.isEmpty());
         
     }
 
@@ -790,6 +1020,23 @@ public class MyArrayListTester {
      */
     @Test
     public void testIsEmpty3() {
+        MyArrayList<String> ls = new MyArrayList<String>(4);
+
+        assertEquals(true, ls.isEmpty());
+
+        ls.add("1");
+
+        ls.add("2");
+
+        ls.add("3");
+
+        ls.add("4");
+
+        assertEquals(false, ls.isEmpty());
+
+        ls.remove("3");
+
+        assertEquals(false, ls.isEmpty());
     }
 
     /**
@@ -801,7 +1048,7 @@ public class MyArrayListTester {
 
         ls.add("me");
 
-        assertEquals(0, ls.indexOf("me"));
+        assertEquals(0, ls.lastIndexOf("me"));
     }
 
     /**
@@ -810,6 +1057,13 @@ public class MyArrayListTester {
      */
     @Test
     public void testLastIndexOf2() {
+        MyArrayList<String> ls = new MyArrayList<String>();
+
+        assertEquals(-1, ls.lastIndexOf("me"));
+
+        ls.add("me");
+
+        assertEquals(-1, ls.lastIndexOf("you"));
     }
 
     /**
@@ -817,6 +1071,15 @@ public class MyArrayListTester {
      */
     @Test
     public void testLastIndexOf3() {
+        MyArrayList<String> ls = new MyArrayList<String>();
+
+        ls.add("me");
+
+        ls.add("me");
+
+        ls.add("me");
+
+        assertEquals(2, ls.lastIndexOf("me"));
     }
 
     /**
@@ -824,6 +1087,15 @@ public class MyArrayListTester {
      */
     @Test
     public void testLastIndexOf4() {
+        MyArrayList<String> ls = new MyArrayList<String>();
+
+        ls.add("me");
+
+        ls.add("u");
+
+        ls.add("i");
+
+        assertEquals(1, ls.lastIndexOf("u"));
     }
 
     /**
@@ -839,10 +1111,25 @@ public class MyArrayListTester {
     }
 
     /**
-     * Unit test of the remove() method. Remove/delete combinations.
+     * Unit test of the remove() method. Multiple remove/delete combinations.
      */
     @Test
     public void testRemove2() {
+        MyArrayList<String> ls = new MyArrayList<String>();
+
+        ls.add("you");
+
+        ls.add("i");
+
+        ls.add("me");
+
+        assertEquals(true, ls.remove("i"));
+
+        assertEquals(true, ls.remove("me"));
+
+        assertEquals(true, ls.remove("you"));
+
+        assertEquals(0, ls.size());
     }
 
     /**
@@ -850,6 +1137,23 @@ public class MyArrayListTester {
      */
     @Test
     public void testRemove3() {
+        MyArrayList<String> ls = new MyArrayList<String>(2);
+
+        ls.add("you");
+
+        ls.add("you");
+
+        assertEquals(2, ls.size());
+
+        assertEquals("you", ls.get(0));
+
+        assertEquals("you", ls.get(1));
+
+        assertEquals(true, ls.remove("you"));
+
+        assertEquals(1, ls.size());
+
+        assertEquals("you", ls.get(0));
     }
 
     /**
@@ -858,6 +1162,25 @@ public class MyArrayListTester {
      */
     @Test
     public void testRemove4() {
+        MyArrayList<String> ls = new MyArrayList<String>();
+
+        assertEquals(false, ls.remove("me"));
+
+        assertEquals(0, ls.size());
+
+        ls.add("you");
+
+        assertEquals(false, ls.remove("me"));
+
+        assertEquals(1, ls.size());
+
+        ls.add("me");
+
+        assertEquals(true, ls.remove("me"));
+
+        assertEquals(1, ls.size());
+
+        assertEquals("you", ls.get(0));
     }
 
     /**
@@ -865,6 +1188,23 @@ public class MyArrayListTester {
      */
     @Test
     public void testRemove5() {
+        MyArrayList<String> ls = new MyArrayList<String>();
+
+        ls.add("you");
+
+        ls.add("you");
+
+        assertEquals(2, ls.size());
+
+        assertEquals("you", ls.get(0));
+
+        assertEquals("you", ls.get(1));
+
+        assertEquals(true, ls.remove("you"));
+
+        assertEquals(1, ls.size());
+
+        assertEquals("you", ls.get(0));
     }
 
     /**
@@ -888,6 +1228,21 @@ public class MyArrayListTester {
      */
     @Test
     public void testSet2() {
+        MyArrayList<String> ls = new MyArrayList<String>();
+
+        ls.add("you");
+
+        ls.add("you");
+
+        assertEquals("you", ls.get(0));
+
+        assertEquals("you", ls.get(1));
+
+        assertEquals("you", ls.set(0, "me"));
+
+        assertEquals("me", ls.get(0));
+
+        assertEquals("you", ls.get(1));
     }
 
     /**
@@ -895,6 +1250,9 @@ public class MyArrayListTester {
      */
     @Test
     public void testSet3() {
+        MyArrayList<String> ls = new MyArrayList<String>();
+
+        assertEquals(null, ls.set(0, "me"));
     }
 
     /**
@@ -902,6 +1260,15 @@ public class MyArrayListTester {
      */
     @Test
     public void testSet4() {
+        MyArrayList<String> ls = new MyArrayList<String>(1);
+
+        ls.add("you");
+
+        assertEquals("you", ls.get(0));
+
+        assertEquals("you", ls.set(0, "me"));
+
+        assertEquals("me", ls.get(0));
     }
 
     /**
@@ -909,6 +1276,15 @@ public class MyArrayListTester {
      */
     @Test
     public void testSet5() {
+        MyArrayList<String> ls = new MyArrayList<String>();
+
+        ls.add("you");
+
+        assertEquals("you", ls.get(0));
+
+        assertEquals(null, ls.set(9, "me"));
+
+        assertEquals("you", ls.get(0));
     }
 
     /**
@@ -932,6 +1308,15 @@ public class MyArrayListTester {
      */
     @Test
     public void testToArray2() {
+        MyArrayList<String> ls = new MyArrayList<String>();
+
+        ls.add("str");
+
+        Object[] arr = ls.toArray();
+
+        assertEquals(1, arr.length);
+
+        assertEquals("str", arr[0]);
     }
 
     /**
@@ -939,6 +1324,9 @@ public class MyArrayListTester {
      */
     @Test
     public void testToArray3() {
+        MyArrayList<String> ls = new MyArrayList<String>();
+
+        assertEquals(new String[0], ls.toArray());
     }
 
     /**
@@ -946,6 +1334,17 @@ public class MyArrayListTester {
      */
     @Test
     public void testToArray4() {
+        MyArrayList<String> ls = new MyArrayList<String>(3);
+        String[] list = {"1", "2", "3"};
+
+        ls.addAll(list);
+
+        assertEquals(0, ls.getCapacity());
+
+        Object[] arr = ls.toArray();
+        for (int i = 0; i < arr.length; i++) {
+            assertEquals(list[i], arr[i]);
+        }
     }
 
     /**
@@ -971,6 +1370,13 @@ public class MyArrayListTester {
      */
     @Test
     public void testTrimToSize2() {
+        MyArrayList<Integer> ls = new MyArrayList<Integer>();
+
+        assertEquals(10, ls.getCapacity());
+
+        ls.trimToSize();
+
+        assertEquals(10, ls.getCapacity());
     }
 
     /**
@@ -978,6 +1384,33 @@ public class MyArrayListTester {
      */
     @Test
     public void testTrimToSize3() {
+        MyArrayList<String> ls = new MyArrayList<String>(2);
+
+        assertEquals(2, ls.getCapacity());
+
+        assertEquals(0, ls.size());
+
+        ls.add("5");
+
+        ls.add("4");
+
+        assertEquals(0, ls.getCapacity());
+
+        assertEquals(2, ls.size());
+
+        assertEquals("5", ls.get(0));
+
+        assertEquals("4", ls.get(1));
+
+        ls.trimToSize();
+
+        assertEquals(0, ls.getCapacity());
+
+        assertEquals(2, ls.size());
+
+        assertEquals("5", ls.get(0));
+
+        assertEquals("4", ls.get(1));
     }
 
     // Integration Test

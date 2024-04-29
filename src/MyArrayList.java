@@ -357,7 +357,9 @@ public class MyArrayList<T> {
      */
     public T set(int idx, T elem) {
         T old = this.get(idx);
-        this.array[idx] = elem;
+        if (old != null) {
+            this.array[idx] = elem;
+        }
         return old;
     }
 
@@ -379,7 +381,7 @@ public class MyArrayList<T> {
      * size.
      */
     public void trimToSize() {
-        if (this.capacity > this.size) {
+        if (this.size > 0 && this.capacity > this.size) {
             T[] arr = (T[]) new Object[this.size];
             for (int i = 0; i < this.size; i++) {
                 arr[i] = this.array[i];
