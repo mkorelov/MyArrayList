@@ -7,8 +7,6 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-import static org.junit.Assert.assertEquals;
-
 import java.util.ArrayList;
 
 /**
@@ -27,8 +25,5 @@ public class Main {
      * @param (String[] args) An array of Strings passed from the command line.
      */
     public static void main(String[] args) throws Exception {
-        ArrayList<Integer> ls = new ArrayList<Integer>(0);
-        ls.add(0,2);
-        System.out.println(ls.get(0));
     }
 }

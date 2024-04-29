@@ -14,8 +14,8 @@
 
 /**
  * My basic ArrayList implementation in Java based on the pseudocode and 
- * method descriptions provided at the online sources above. Works with any 
- * subtype of Object. Uses a zero-indexed array as the backend data structure. 
+ * method descriptions provided at the online sources above. Each instance can 
+ * hold one type. Uses a zero-indexed array as the backend data structure. 
  * Has 3 private member variables: a backend array that holds the data, an int 
  * that holds the number of elements in the ArrayList, and an int that holds 
  * the number of free slots in the ArrayList.
